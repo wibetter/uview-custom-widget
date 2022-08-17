@@ -1,12 +1,12 @@
-# uni-custom-widget-template
-> aipage-editor自定义组件模板，uniapp版自定义组件，用于开发APP和各类小程序自定义组件。
+# uview-custom-widget
+> uview自定义组件模板，uniapp + uview 技术栈，用于开发APP和各类小程序自定义组件（默认支持uview ui库）。
 
 ### 目录说明
 - src: 自定义组件源码；
 - dist: uniapp构建后文件存放目录；
 - web: 自定义组件web预览模块（发布NPM自定义组件需要）；
 - src/components: 存放自定义组件源码（vue3技术栈）；
-- src/components/uni-info-card/uni-info-card.vue: 自定义组件内容文件，使用uniapp开发自定义组件请遵循[easycom组件规范](https://uniapp.dcloud.net.cn/component/#easycom%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83)；
+- src/components/uni-time-line/uni-time-line.vue: 自定义组件内容文件，使用uniapp开发自定义组件请遵循[easycom组件规范](https://uniapp.dcloud.net.cn/component/#easycom%E7%BB%84%E4%BB%B6%E8%A7%84%E8%8C%83)；
 - src/components/xxx/assets: 存放自定义组件组件静态资源，比如 css、img等，此处存放的静态资源会经过webpack构建；
 - src/pages: uniapp 应用页面，开发uniapp自定义组件时仅用于充当预览展示页；
 - src/main.ts: uniapp 应用入口文件；
@@ -23,6 +23,7 @@
 
 ### 相关开发文档
 - uni-app开发文档：[https://uniapp.dcloud.net.cn/](https://uniapp.dcloud.net.cn/)
+- uview开发文档：[https://vkuviewdoc.fsq.pub/components/intro.html](https://vkuviewdoc.fsq.pub/components/intro.html)
 - vue3开发文档：[https://v3.cn.vuejs.org/](https://v3.cn.vuejs.org/)
 - 自定组件注册器：[vue3-aipage-widget](https://github.com/aisuda/vue3-aipage-widget)
 - 自定义组件开发工具：[amis-widget-cli](https://github.com/aisuda/amis-widget-cli)
@@ -63,9 +64,9 @@ $ npm run build2lib
   ...
     "aipage-widgets": [
     {
-      "type": "uni-info-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
+      "type": "uni-time-line", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
       "framework": "vue3", // 技术栈类型，必填项
-      "description": "信息展示卡片", // 自定义组件描述，在编辑器左侧组件面板作为描述信息展示，必填项
+      "description": "物流节点", // 自定义组件描述，在编辑器左侧组件面板作为描述信息展示，必填项
       "entry": "/web/renderer.umd", // 自定义组件入口文件路径，必填项
       "files": [  // 自定义组件依赖资源文件路径，非必填项
         "/web/style.css"
@@ -73,7 +74,7 @@ $ npm run build2lib
       "editorPlugin": {  // amis-editor自定义插件信息
         "pluginEntry": "/web/plugin.umd", // 自定义插件的入口文件，必填项
         "tag": [  // 自定义插件的分类，必填项
-          "uni小程序组件"
+          "uview组件"
         ],
         "sort": 100, // 自定义插件的排序，非必填项
         "device": [ // 自定义组件支持的设备类型，必填项
@@ -84,8 +85,8 @@ $ npm run build2lib
     },
     {
       "framework": "uniapp", // 快应用技术栈类型，必填项
-      "type": "uni-info-card", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
-      "entry": "/src/components/info-card", // 快应用自定义组件根目录
+      "type": "uni-time-line", // 自定义组件类型，必填项，同一应用下不允许有重复的自定义组件类型
+      "entry": "/src/components/uni-time-line", // 快应用自定义组件根目录
     },
     ... // 其他自定义组件
   ],

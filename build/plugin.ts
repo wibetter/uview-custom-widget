@@ -9,7 +9,7 @@ const InfoCardPlugin = {
   description: 'uview版TimeLine组件示例',
   componentId: 'uni-time-line',
   id: 'uni-time-line',
-  tags: ['跨端组件'], // 组件分类
+  tags: ['uview组件'], // 组件分类
   pluginIcon: 'cards-plugin',
   order: 1, // 展示顺序（从小到大展示）
   type: 'element', // 渲染器类型
