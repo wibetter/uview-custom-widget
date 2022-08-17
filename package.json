@@ -49,9 +49,9 @@
   ],
   "aipage-widgets": [
     {
-      "type": "uni-info-card",
+      "type": "uni-time-line",
       "framework": "vue3",
-      "description": "信息展示卡片",
+      "description": "物流信息节点",
       "entry": "/web/renderer.umd",
       "files": [
         "/web/style.css"
@@ -69,9 +69,9 @@
       }
     },
     {
-      "type": "uni-info-card",
+      "type": "uni-time-line",
       "framework": "uniapp",
-      "entry": "/src/components/uni-info-card"
+      "entry": "/src/components/uni-time-line"
     }
   ],
   "husky": {
