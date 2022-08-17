@@ -10,6 +10,7 @@
   ],
   "author": "wibetter",
   "scripts": {
+    "install": "node ./build/install.js",
     "preview": "uni",
     "linkDebug": "npm run build:h5 && amis linkDebug",
     "build2lib": "npm run build:h5",
