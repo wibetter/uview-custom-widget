@@ -69,9 +69,10 @@ const InfoCardPlugin = {
                     label: '详细',
                   },
                   {
-                    type: 'input-date',
+                    type: 'input-datetime',
                     name: 'time',
                     label: '时间',
+                    format: "YYYY-MM-DD HH:mm",
                   },
                 ],
                 enableDataBinding: true, // 有这个属性则组件会自动开启动态数据绑定
