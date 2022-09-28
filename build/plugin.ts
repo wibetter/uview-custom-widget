@@ -55,6 +55,8 @@ const InfoCardPlugin = {
                 name: 'data.timeLine',
                 type: 'setting-list',
                 label: '物流节点',
+                mode: 'normal',
+                fullSize: true,
                 setting: [
                   {
                     type: 'input-text',

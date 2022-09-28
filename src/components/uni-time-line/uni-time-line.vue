@@ -23,7 +23,7 @@ export default {
   props: ['componentProperties', 'id'],
   data() {
     return {
-      show: false,
+      show: true,
       mode: 'date',
       timeLineDemo: [
         {
