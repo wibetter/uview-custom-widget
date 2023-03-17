@@ -1,31 +1,59 @@
 var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __defNormalProp = (obj, key, value) =>
+  key in obj
+    ? __defProp(obj, key, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        value,
+      })
+    : (obj[key] = value);
 var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  __defNormalProp(obj, typeof key !== 'symbol' ? key + '' : key, value);
   return value;
 };
-(function(global2, factory) {
-  typeof exports === "object" && typeof module !== "undefined" ? factory(require("react"), require("vue")) : typeof define === "function" && define.amd ? define(["react", "vue"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.react, global2.vue));
-})(this, function(React, vue) {
+(function (global2, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined'
+    ? factory(require('react'), require('vue'))
+    : typeof define === 'function' && define.amd
+    ? define(['react', 'vue'], factory)
+    : ((global2 =
+        typeof globalThis !== 'undefined' ? globalThis : global2 || self),
+      factory(global2.react, global2.vue));
+})(this, function (React, vue) {
   var _a;
-  "use strict";
+  ('use strict');
   function _interopDefaultLegacy(e) {
-    return e && typeof e === "object" && "default" in e ? e : { "default": e };
+    return e && typeof e === 'object' && 'default' in e ? e : { default: e };
   }
   var React__default = /* @__PURE__ */ _interopDefaultLegacy(React);
-  var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+  var commonjsGlobal =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : typeof self !== 'undefined'
+      ? self
+      : {};
   function isObject$7(value) {
     var type = typeof value;
-    return value != null && (type == "object" || type == "function");
+    return value != null && (type == 'object' || type == 'function');
   }
   var isObject_1 = isObject$7;
   var isArray$8 = Array.isArray;
   var isArray_1 = isArray$8;
-  var freeGlobal$1 = typeof commonjsGlobal == "object" && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+  var freeGlobal$1 =
+    typeof commonjsGlobal == 'object' &&
+    commonjsGlobal &&
+    commonjsGlobal.Object === Object &&
+    commonjsGlobal;
   var _freeGlobal = freeGlobal$1;
   var freeGlobal = _freeGlobal;
-  var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-  var root$8 = freeGlobal || freeSelf || Function("return this")();
+  var freeSelf =
+    typeof self == 'object' && self && self.Object === Object && self;
+  var root$8 = freeGlobal || freeSelf || Function('return this')();
   var _root = root$8;
   var root$7 = _root;
   var Symbol$6 = root$7.Symbol;
@@ -36,12 +64,12 @@ var __publicField = (obj, key, value) => {
   var nativeObjectToString$1 = objectProto$c.toString;
   var symToStringTag$1 = Symbol$5 ? Symbol$5.toStringTag : void 0;
   function getRawTag$1(value) {
-    var isOwn = hasOwnProperty$a.call(value, symToStringTag$1), tag = value[symToStringTag$1];
+    var isOwn = hasOwnProperty$a.call(value, symToStringTag$1),
+      tag = value[symToStringTag$1];
     try {
       value[symToStringTag$1] = void 0;
       var unmasked = true;
-    } catch (e) {
-    }
+    } catch (e) {}
     var result = nativeObjectToString$1.call(value);
     if (unmasked) {
       if (isOwn) {
@@ -59,57 +87,86 @@ var __publicField = (obj, key, value) => {
     return nativeObjectToString.call(value);
   }
   var _objectToString = objectToString$2;
-  var Symbol$4 = _Symbol, getRawTag = _getRawTag, objectToString$1 = _objectToString;
-  var nullTag = "[object Null]", undefinedTag = "[object Undefined]";
+  var Symbol$4 = _Symbol,
+    getRawTag = _getRawTag,
+    objectToString$1 = _objectToString;
+  var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
   var symToStringTag = Symbol$4 ? Symbol$4.toStringTag : void 0;
   function baseGetTag$6(value) {
     if (value == null) {
       return value === void 0 ? undefinedTag : nullTag;
     }
-    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString$1(value);
+    return symToStringTag && symToStringTag in Object(value)
+      ? getRawTag(value)
+      : objectToString$1(value);
   }
   var _baseGetTag = baseGetTag$6;
   function isObjectLike$7(value) {
-    return value != null && typeof value == "object";
+    return value != null && typeof value == 'object';
   }
   var isObjectLike_1 = isObjectLike$7;
-  var baseGetTag$5 = _baseGetTag, isObjectLike$6 = isObjectLike_1;
-  var symbolTag$2 = "[object Symbol]";
+  var baseGetTag$5 = _baseGetTag,
+    isObjectLike$6 = isObjectLike_1;
+  var symbolTag$2 = '[object Symbol]';
   function isSymbol$3(value) {
-    return typeof value == "symbol" || isObjectLike$6(value) && baseGetTag$5(value) == symbolTag$2;
+    return (
+      typeof value == 'symbol' ||
+      (isObjectLike$6(value) && baseGetTag$5(value) == symbolTag$2)
+    );
   }
   var isSymbol_1 = isSymbol$3;
-  var isArray$7 = isArray_1, isSymbol$2 = isSymbol_1;
-  var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, reIsPlainProp = /^\w*$/;
+  var isArray$7 = isArray_1,
+    isSymbol$2 = isSymbol_1;
+  var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+    reIsPlainProp = /^\w*$/;
   function isKey$1(value, object) {
     if (isArray$7(value)) {
       return false;
     }
     var type = typeof value;
-    if (type == "number" || type == "symbol" || type == "boolean" || value == null || isSymbol$2(value)) {
+    if (
+      type == 'number' ||
+      type == 'symbol' ||
+      type == 'boolean' ||
+      value == null ||
+      isSymbol$2(value)
+    ) {
       return true;
     }
-    return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || object != null && value in Object(object);
+    return (
+      reIsPlainProp.test(value) ||
+      !reIsDeepProp.test(value) ||
+      (object != null && value in Object(object))
+    );
   }
   var _isKey = isKey$1;
-  var baseGetTag$4 = _baseGetTag, isObject$6 = isObject_1;
-  var asyncTag = "[object AsyncFunction]", funcTag$2 = "[object Function]", genTag$1 = "[object GeneratorFunction]", proxyTag = "[object Proxy]";
+  var baseGetTag$4 = _baseGetTag,
+    isObject$6 = isObject_1;
+  var asyncTag = '[object AsyncFunction]',
+    funcTag$2 = '[object Function]',
+    genTag$1 = '[object GeneratorFunction]',
+    proxyTag = '[object Proxy]';
   function isFunction$3(value) {
     if (!isObject$6(value)) {
       return false;
     }
     var tag = baseGetTag$4(value);
-    return tag == funcTag$2 || tag == genTag$1 || tag == asyncTag || tag == proxyTag;
+    return (
+      tag == funcTag$2 || tag == genTag$1 || tag == asyncTag || tag == proxyTag
+    );
   }
   var isFunction_1 = isFunction$3;
   var root$6 = _root;
-  var coreJsData$1 = root$6["__core-js_shared__"];
+  var coreJsData$1 = root$6['__core-js_shared__'];
   var _coreJsData = coreJsData$1;
   var coreJsData = _coreJsData;
-  var maskSrcKey = function() {
-    var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || "");
-    return uid ? "Symbol(src)_1." + uid : "";
-  }();
+  var maskSrcKey = (function () {
+    var uid = /[^.]+$/.exec(
+      (coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO) || '',
+    );
+    return uid ? 'Symbol(src)_1.' + uid : '';
+  })();
   function isMasked$1(func) {
     return !!maskSrcKey && maskSrcKey in func;
   }
@@ -120,24 +177,34 @@ var __publicField = (obj, key, value) => {
     if (func != null) {
       try {
         return funcToString$1.call(func);
-      } catch (e) {
-      }
+      } catch (e) {}
       try {
-        return func + "";
-      } catch (e) {
-      }
+        return func + '';
+      } catch (e) {}
     }
-    return "";
+    return '';
   }
   var _toSource = toSource$2;
-  var isFunction$2 = isFunction_1, isMasked = _isMasked, isObject$5 = isObject_1, toSource$1 = _toSource;
+  var isFunction$2 = isFunction_1,
+    isMasked = _isMasked,
+    isObject$5 = isObject_1,
+    toSource$1 = _toSource;
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
   var reIsHostCtor = /^\[object .+?Constructor\]$/;
-  var funcProto = Function.prototype, objectProto$a = Object.prototype;
+  var funcProto = Function.prototype,
+    objectProto$a = Object.prototype;
   var funcToString = funcProto.toString;
   var hasOwnProperty$9 = objectProto$a.hasOwnProperty;
   var reIsNative = RegExp(
-    "^" + funcToString.call(hasOwnProperty$9).replace(reRegExpChar, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"
+    '^' +
+      funcToString
+        .call(hasOwnProperty$9)
+        .replace(reRegExpChar, '\\$&')
+        .replace(
+          /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
+          '$1.*?',
+        ) +
+      '$',
   );
   function baseIsNative$1(value) {
     if (!isObject$5(value) || isMasked(value)) {
@@ -151,14 +218,15 @@ var __publicField = (obj, key, value) => {
     return object == null ? void 0 : object[key];
   }
   var _getValue = getValue$1;
-  var baseIsNative = _baseIsNative, getValue = _getValue;
+  var baseIsNative = _baseIsNative,
+    getValue = _getValue;
   function getNative$7(object, key) {
     var value = getValue(object, key);
     return baseIsNative(value) ? value : void 0;
   }
   var _getNative = getNative$7;
   var getNative$6 = _getNative;
-  var nativeCreate$4 = getNative$6(Object, "create");
+  var nativeCreate$4 = getNative$6(Object, 'create');
   var _nativeCreate = nativeCreate$4;
   var nativeCreate$3 = _nativeCreate;
   function hashClear$1() {
@@ -173,7 +241,7 @@ var __publicField = (obj, key, value) => {
   }
   var _hashDelete = hashDelete$1;
   var nativeCreate$2 = _nativeCreate;
-  var HASH_UNDEFINED$1 = "__lodash_hash_undefined__";
+  var HASH_UNDEFINED$1 = '__lodash_hash_undefined__';
   var objectProto$9 = Object.prototype;
   var hasOwnProperty$8 = objectProto$9.hasOwnProperty;
   function hashGet$1(key) {
@@ -190,11 +258,13 @@ var __publicField = (obj, key, value) => {
   var hasOwnProperty$7 = objectProto$8.hasOwnProperty;
   function hashHas$1(key) {
     var data = this.__data__;
-    return nativeCreate$1 ? data[key] !== void 0 : hasOwnProperty$7.call(data, key);
+    return nativeCreate$1
+      ? data[key] !== void 0
+      : hasOwnProperty$7.call(data, key);
   }
   var _hashHas = hashHas$1;
   var nativeCreate = _nativeCreate;
-  var HASH_UNDEFINED = "__lodash_hash_undefined__";
+  var HASH_UNDEFINED = '__lodash_hash_undefined__';
   function hashSet$1(key, value) {
     var data = this.__data__;
     this.size += this.has(key) ? 0 : 1;
@@ -202,9 +272,14 @@ var __publicField = (obj, key, value) => {
     return this;
   }
   var _hashSet = hashSet$1;
-  var hashClear = _hashClear, hashDelete = _hashDelete, hashGet = _hashGet, hashHas = _hashHas, hashSet = _hashSet;
+  var hashClear = _hashClear,
+    hashDelete = _hashDelete,
+    hashGet = _hashGet,
+    hashHas = _hashHas,
+    hashSet = _hashSet;
   function Hash$1(entries) {
-    var index = -1, length = entries == null ? 0 : entries.length;
+    var index = -1,
+      length = entries == null ? 0 : entries.length;
     this.clear();
     while (++index < length) {
       var entry = entries[index];
@@ -212,7 +287,7 @@ var __publicField = (obj, key, value) => {
     }
   }
   Hash$1.prototype.clear = hashClear;
-  Hash$1.prototype["delete"] = hashDelete;
+  Hash$1.prototype['delete'] = hashDelete;
   Hash$1.prototype.get = hashGet;
   Hash$1.prototype.has = hashHas;
   Hash$1.prototype.set = hashSet;
@@ -223,7 +298,7 @@ var __publicField = (obj, key, value) => {
   }
   var _listCacheClear = listCacheClear$1;
   function eq$2(value, other) {
-    return value === other || value !== value && other !== other;
+    return value === other || (value !== value && other !== other);
   }
   var eq_1 = eq$2;
   var eq$1 = eq_1;
@@ -241,7 +316,8 @@ var __publicField = (obj, key, value) => {
   var arrayProto = Array.prototype;
   var splice = arrayProto.splice;
   function listCacheDelete$1(key) {
-    var data = this.__data__, index = assocIndexOf$3(data, key);
+    var data = this.__data__,
+      index = assocIndexOf$3(data, key);
     if (index < 0) {
       return false;
     }
@@ -257,7 +333,8 @@ var __publicField = (obj, key, value) => {
   var _listCacheDelete = listCacheDelete$1;
   var assocIndexOf$2 = _assocIndexOf;
   function listCacheGet$1(key) {
-    var data = this.__data__, index = assocIndexOf$2(data, key);
+    var data = this.__data__,
+      index = assocIndexOf$2(data, key);
     return index < 0 ? void 0 : data[index][1];
   }
   var _listCacheGet = listCacheGet$1;
@@ -268,7 +345,8 @@ var __publicField = (obj, key, value) => {
   var _listCacheHas = listCacheHas$1;
   var assocIndexOf = _assocIndexOf;
   function listCacheSet$1(key, value) {
-    var data = this.__data__, index = assocIndexOf(data, key);
+    var data = this.__data__,
+      index = assocIndexOf(data, key);
     if (index < 0) {
       ++this.size;
       data.push([key, value]);
@@ -278,9 +356,14 @@ var __publicField = (obj, key, value) => {
     return this;
   }
   var _listCacheSet = listCacheSet$1;
-  var listCacheClear = _listCacheClear, listCacheDelete = _listCacheDelete, listCacheGet = _listCacheGet, listCacheHas = _listCacheHas, listCacheSet = _listCacheSet;
+  var listCacheClear = _listCacheClear,
+    listCacheDelete = _listCacheDelete,
+    listCacheGet = _listCacheGet,
+    listCacheHas = _listCacheHas,
+    listCacheSet = _listCacheSet;
   function ListCache$4(entries) {
-    var index = -1, length = entries == null ? 0 : entries.length;
+    var index = -1,
+      length = entries == null ? 0 : entries.length;
     this.clear();
     while (++index < length) {
       var entry = entries[index];
@@ -288,38 +371,48 @@ var __publicField = (obj, key, value) => {
     }
   }
   ListCache$4.prototype.clear = listCacheClear;
-  ListCache$4.prototype["delete"] = listCacheDelete;
+  ListCache$4.prototype['delete'] = listCacheDelete;
   ListCache$4.prototype.get = listCacheGet;
   ListCache$4.prototype.has = listCacheHas;
   ListCache$4.prototype.set = listCacheSet;
   var _ListCache = ListCache$4;
-  var getNative$5 = _getNative, root$5 = _root;
-  var Map$4 = getNative$5(root$5, "Map");
+  var getNative$5 = _getNative,
+    root$5 = _root;
+  var Map$4 = getNative$5(root$5, 'Map');
   var _Map = Map$4;
-  var Hash = _Hash, ListCache$3 = _ListCache, Map$3 = _Map;
+  var Hash = _Hash,
+    ListCache$3 = _ListCache,
+    Map$3 = _Map;
   function mapCacheClear$1() {
     this.size = 0;
     this.__data__ = {
-      "hash": new Hash(),
-      "map": new (Map$3 || ListCache$3)(),
-      "string": new Hash()
+      hash: new Hash(),
+      map: new (Map$3 || ListCache$3)(),
+      string: new Hash(),
     };
   }
   var _mapCacheClear = mapCacheClear$1;
   function isKeyable$1(value) {
     var type = typeof value;
-    return type == "string" || type == "number" || type == "symbol" || type == "boolean" ? value !== "__proto__" : value === null;
+    return type == 'string' ||
+      type == 'number' ||
+      type == 'symbol' ||
+      type == 'boolean'
+      ? value !== '__proto__'
+      : value === null;
   }
   var _isKeyable = isKeyable$1;
   var isKeyable = _isKeyable;
   function getMapData$4(map, key) {
     var data = map.__data__;
-    return isKeyable(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
+    return isKeyable(key)
+      ? data[typeof key == 'string' ? 'string' : 'hash']
+      : data.map;
   }
   var _getMapData = getMapData$4;
   var getMapData$3 = _getMapData;
   function mapCacheDelete$1(key) {
-    var result = getMapData$3(this, key)["delete"](key);
+    var result = getMapData$3(this, key)['delete'](key);
     this.size -= result ? 1 : 0;
     return result;
   }
@@ -336,15 +429,21 @@ var __publicField = (obj, key, value) => {
   var _mapCacheHas = mapCacheHas$1;
   var getMapData = _getMapData;
   function mapCacheSet$1(key, value) {
-    var data = getMapData(this, key), size = data.size;
+    var data = getMapData(this, key),
+      size = data.size;
     data.set(key, value);
     this.size += data.size == size ? 0 : 1;
     return this;
   }
   var _mapCacheSet = mapCacheSet$1;
-  var mapCacheClear = _mapCacheClear, mapCacheDelete = _mapCacheDelete, mapCacheGet = _mapCacheGet, mapCacheHas = _mapCacheHas, mapCacheSet = _mapCacheSet;
+  var mapCacheClear = _mapCacheClear,
+    mapCacheDelete = _mapCacheDelete,
+    mapCacheGet = _mapCacheGet,
+    mapCacheHas = _mapCacheHas,
+    mapCacheSet = _mapCacheSet;
   function MapCache$2(entries) {
-    var index = -1, length = entries == null ? 0 : entries.length;
+    var index = -1,
+      length = entries == null ? 0 : entries.length;
     this.clear();
     while (++index < length) {
       var entry = entries[index];
@@ -352,19 +451,24 @@ var __publicField = (obj, key, value) => {
     }
   }
   MapCache$2.prototype.clear = mapCacheClear;
-  MapCache$2.prototype["delete"] = mapCacheDelete;
+  MapCache$2.prototype['delete'] = mapCacheDelete;
   MapCache$2.prototype.get = mapCacheGet;
   MapCache$2.prototype.has = mapCacheHas;
   MapCache$2.prototype.set = mapCacheSet;
   var _MapCache = MapCache$2;
   var MapCache$1 = _MapCache;
-  var FUNC_ERROR_TEXT = "Expected a function";
+  var FUNC_ERROR_TEXT = 'Expected a function';
   function memoize$1(func, resolver) {
-    if (typeof func != "function" || resolver != null && typeof resolver != "function") {
+    if (
+      typeof func != 'function' ||
+      (resolver != null && typeof resolver != 'function')
+    ) {
       throw new TypeError(FUNC_ERROR_TEXT);
     }
-    var memoized = function() {
-      var args = arguments, key = resolver ? resolver.apply(this, args) : args[0], cache = memoized.cache;
+    var memoized = function () {
+      var args = arguments,
+        key = resolver ? resolver.apply(this, args) : args[0],
+        cache = memoized.cache;
       if (cache.has(key)) {
         return cache.get(key);
       }
@@ -380,7 +484,7 @@ var __publicField = (obj, key, value) => {
   var memoize = memoize_1;
   var MAX_MEMOIZE_SIZE = 500;
   function memoizeCapped$1(func) {
-    var result = memoize(func, function(key) {
+    var result = memoize(func, function (key) {
       if (cache.size === MAX_MEMOIZE_SIZE) {
         cache.clear();
       }
@@ -391,50 +495,62 @@ var __publicField = (obj, key, value) => {
   }
   var _memoizeCapped = memoizeCapped$1;
   var memoizeCapped = _memoizeCapped;
-  var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+  var rePropName =
+    /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
   var reEscapeChar = /\\(\\)?/g;
-  var stringToPath$1 = memoizeCapped(function(string) {
+  var stringToPath$1 = memoizeCapped(function (string) {
     var result = [];
     if (string.charCodeAt(0) === 46) {
-      result.push("");
+      result.push('');
     }
-    string.replace(rePropName, function(match, number, quote, subString) {
-      result.push(quote ? subString.replace(reEscapeChar, "$1") : number || match);
+    string.replace(rePropName, function (match, number, quote, subString) {
+      result.push(
+        quote ? subString.replace(reEscapeChar, '$1') : number || match,
+      );
     });
     return result;
   });
   var _stringToPath = stringToPath$1;
   function arrayMap$1(array, iteratee) {
-    var index = -1, length = array == null ? 0 : array.length, result = Array(length);
+    var index = -1,
+      length = array == null ? 0 : array.length,
+      result = Array(length);
     while (++index < length) {
       result[index] = iteratee(array[index], index, array);
     }
     return result;
   }
   var _arrayMap = arrayMap$1;
-  var Symbol$3 = _Symbol, arrayMap = _arrayMap, isArray$6 = isArray_1, isSymbol$1 = isSymbol_1;
+  var Symbol$3 = _Symbol,
+    arrayMap = _arrayMap,
+    isArray$6 = isArray_1,
+    isSymbol$1 = isSymbol_1;
   var INFINITY$1 = 1 / 0;
-  var symbolProto$1 = Symbol$3 ? Symbol$3.prototype : void 0, symbolToString = symbolProto$1 ? symbolProto$1.toString : void 0;
+  var symbolProto$1 = Symbol$3 ? Symbol$3.prototype : void 0,
+    symbolToString = symbolProto$1 ? symbolProto$1.toString : void 0;
   function baseToString$1(value) {
-    if (typeof value == "string") {
+    if (typeof value == 'string') {
       return value;
     }
     if (isArray$6(value)) {
-      return arrayMap(value, baseToString$1) + "";
+      return arrayMap(value, baseToString$1) + '';
     }
     if (isSymbol$1(value)) {
-      return symbolToString ? symbolToString.call(value) : "";
+      return symbolToString ? symbolToString.call(value) : '';
     }
-    var result = value + "";
-    return result == "0" && 1 / value == -INFINITY$1 ? "-0" : result;
+    var result = value + '';
+    return result == '0' && 1 / value == -INFINITY$1 ? '-0' : result;
   }
   var _baseToString = baseToString$1;
   var baseToString = _baseToString;
   function toString$1(value) {
-    return value == null ? "" : baseToString(value);
+    return value == null ? '' : baseToString(value);
   }
   var toString_1 = toString$1;
-  var isArray$5 = isArray_1, isKey = _isKey, stringToPath = _stringToPath, toString = toString_1;
+  var isArray$5 = isArray_1,
+    isKey = _isKey,
+    stringToPath = _stringToPath,
+    toString = toString_1;
   function castPath$4(value, object) {
     if (isArray$5(value)) {
       return value;
@@ -445,17 +561,19 @@ var __publicField = (obj, key, value) => {
   var isSymbol = isSymbol_1;
   var INFINITY = 1 / 0;
   function toKey$3(value) {
-    if (typeof value == "string" || isSymbol(value)) {
+    if (typeof value == 'string' || isSymbol(value)) {
       return value;
     }
-    var result = value + "";
-    return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+    var result = value + '';
+    return result == '0' && 1 / value == -INFINITY ? '-0' : result;
   }
   var _toKey = toKey$3;
-  var castPath$3 = _castPath, toKey$2 = _toKey;
+  var castPath$3 = _castPath,
+    toKey$2 = _toKey;
   function baseGet$1(object, path) {
     path = castPath$3(path, object);
-    var index = 0, length = path.length;
+    var index = 0,
+      length = path.length;
     while (object != null && index < length) {
       object = object[toKey$2(path[index++])];
     }
@@ -463,35 +581,38 @@ var __publicField = (obj, key, value) => {
   }
   var _baseGet = baseGet$1;
   var getNative$4 = _getNative;
-  var defineProperty$2 = function() {
+  var defineProperty$2 = (function () {
     try {
-      var func = getNative$4(Object, "defineProperty");
-      func({}, "", {});
+      var func = getNative$4(Object, 'defineProperty');
+      func({}, '', {});
       return func;
-    } catch (e) {
-    }
-  }();
+    } catch (e) {}
+  })();
   var _defineProperty = defineProperty$2;
   var defineProperty$1 = _defineProperty;
   function baseAssignValue$2(object, key, value) {
-    if (key == "__proto__" && defineProperty$1) {
+    if (key == '__proto__' && defineProperty$1) {
       defineProperty$1(object, key, {
-        "configurable": true,
-        "enumerable": true,
-        "value": value,
-        "writable": true
+        configurable: true,
+        enumerable: true,
+        value: value,
+        writable: true,
       });
     } else {
       object[key] = value;
     }
   }
   var _baseAssignValue = baseAssignValue$2;
-  var baseAssignValue$1 = _baseAssignValue, eq = eq_1;
+  var baseAssignValue$1 = _baseAssignValue,
+    eq = eq_1;
   var objectProto$7 = Object.prototype;
   var hasOwnProperty$6 = objectProto$7.hasOwnProperty;
   function assignValue$3(object, key, value) {
     var objValue = object[key];
-    if (!(hasOwnProperty$6.call(object, key) && eq(objValue, value)) || value === void 0 && !(key in object)) {
+    if (
+      !(hasOwnProperty$6.call(object, key) && eq(objValue, value)) ||
+      (value === void 0 && !(key in object))
+    ) {
       baseAssignValue$1(object, key, value);
     }
   }
@@ -501,26 +622,44 @@ var __publicField = (obj, key, value) => {
   function isIndex$3(value, length) {
     var type = typeof value;
     length = length == null ? MAX_SAFE_INTEGER$1 : length;
-    return !!length && (type == "number" || type != "symbol" && reIsUint.test(value)) && (value > -1 && value % 1 == 0 && value < length);
+    return (
+      !!length &&
+      (type == 'number' || (type != 'symbol' && reIsUint.test(value))) &&
+      value > -1 &&
+      value % 1 == 0 &&
+      value < length
+    );
   }
   var _isIndex = isIndex$3;
-  var assignValue$2 = _assignValue, castPath$2 = _castPath, isIndex$2 = _isIndex, isObject$4 = isObject_1, toKey$1 = _toKey;
+  var assignValue$2 = _assignValue,
+    castPath$2 = _castPath,
+    isIndex$2 = _isIndex,
+    isObject$4 = isObject_1,
+    toKey$1 = _toKey;
   function baseSet$1(object, path, value, customizer) {
     if (!isObject$4(object)) {
       return object;
     }
     path = castPath$2(path, object);
-    var index = -1, length = path.length, lastIndex = length - 1, nested = object;
+    var index = -1,
+      length = path.length,
+      lastIndex = length - 1,
+      nested = object;
     while (nested != null && ++index < length) {
-      var key = toKey$1(path[index]), newValue = value;
-      if (key === "__proto__" || key === "constructor" || key === "prototype") {
+      var key = toKey$1(path[index]),
+        newValue = value;
+      if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
         return object;
       }
       if (index != lastIndex) {
         var objValue = nested[key];
         newValue = customizer ? customizer(objValue, key, nested) : void 0;
         if (newValue === void 0) {
-          newValue = isObject$4(objValue) ? objValue : isIndex$2(path[index + 1]) ? [] : {};
+          newValue = isObject$4(objValue)
+            ? objValue
+            : isIndex$2(path[index + 1])
+            ? []
+            : {};
         }
       }
       assignValue$2(nested, key, newValue);
@@ -529,11 +668,16 @@ var __publicField = (obj, key, value) => {
     return object;
   }
   var _baseSet = baseSet$1;
-  var baseGet = _baseGet, baseSet = _baseSet, castPath$1 = _castPath;
+  var baseGet = _baseGet,
+    baseSet = _baseSet,
+    castPath$1 = _castPath;
   function basePickBy$1(object, paths, predicate) {
-    var index = -1, length = paths.length, result = {};
+    var index = -1,
+      length = paths.length,
+      result = {};
     while (++index < length) {
-      var path = paths[index], value = baseGet(object, path);
+      var path = paths[index],
+        value = baseGet(object, path);
       if (predicate(value, path)) {
         baseSet(result, castPath$1(path, object), value);
       }
@@ -545,31 +689,53 @@ var __publicField = (obj, key, value) => {
     return object != null && key in Object(object);
   }
   var _baseHasIn = baseHasIn$1;
-  var baseGetTag$3 = _baseGetTag, isObjectLike$5 = isObjectLike_1;
-  var argsTag$2 = "[object Arguments]";
+  var baseGetTag$3 = _baseGetTag,
+    isObjectLike$5 = isObjectLike_1;
+  var argsTag$2 = '[object Arguments]';
   function baseIsArguments$1(value) {
     return isObjectLike$5(value) && baseGetTag$3(value) == argsTag$2;
   }
   var _baseIsArguments = baseIsArguments$1;
-  var baseIsArguments = _baseIsArguments, isObjectLike$4 = isObjectLike_1;
+  var baseIsArguments = _baseIsArguments,
+    isObjectLike$4 = isObjectLike_1;
   var objectProto$6 = Object.prototype;
   var hasOwnProperty$5 = objectProto$6.hasOwnProperty;
   var propertyIsEnumerable$1 = objectProto$6.propertyIsEnumerable;
-  var isArguments$3 = baseIsArguments(function() {
-    return arguments;
-  }()) ? baseIsArguments : function(value) {
-    return isObjectLike$4(value) && hasOwnProperty$5.call(value, "callee") && !propertyIsEnumerable$1.call(value, "callee");
-  };
+  var isArguments$3 = baseIsArguments(
+    (function () {
+      return arguments;
+    })(),
+  )
+    ? baseIsArguments
+    : function (value) {
+        return (
+          isObjectLike$4(value) &&
+          hasOwnProperty$5.call(value, 'callee') &&
+          !propertyIsEnumerable$1.call(value, 'callee')
+        );
+      };
   var isArguments_1 = isArguments$3;
   var MAX_SAFE_INTEGER = 9007199254740991;
   function isLength$3(value) {
-    return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+    return (
+      typeof value == 'number' &&
+      value > -1 &&
+      value % 1 == 0 &&
+      value <= MAX_SAFE_INTEGER
+    );
   }
   var isLength_1 = isLength$3;
-  var castPath = _castPath, isArguments$2 = isArguments_1, isArray$4 = isArray_1, isIndex$1 = _isIndex, isLength$2 = isLength_1, toKey = _toKey;
+  var castPath = _castPath,
+    isArguments$2 = isArguments_1,
+    isArray$4 = isArray_1,
+    isIndex$1 = _isIndex,
+    isLength$2 = isLength_1,
+    toKey = _toKey;
   function hasPath$1(object, path, hasFunc) {
     path = castPath(path, object);
-    var index = -1, length = path.length, result = false;
+    var index = -1,
+      length = path.length,
+      result = false;
     while (++index < length) {
       var key = toKey(path[index]);
       if (!(result = object != null && hasFunc(object, key))) {
@@ -581,38 +747,55 @@ var __publicField = (obj, key, value) => {
       return result;
     }
     length = object == null ? 0 : object.length;
-    return !!length && isLength$2(length) && isIndex$1(key, length) && (isArray$4(object) || isArguments$2(object));
+    return (
+      !!length &&
+      isLength$2(length) &&
+      isIndex$1(key, length) &&
+      (isArray$4(object) || isArguments$2(object))
+    );
   }
   var _hasPath = hasPath$1;
-  var baseHasIn = _baseHasIn, hasPath = _hasPath;
+  var baseHasIn = _baseHasIn,
+    hasPath = _hasPath;
   function hasIn$1(object, path) {
     return object != null && hasPath(object, path, baseHasIn);
   }
   var hasIn_1 = hasIn$1;
-  var basePickBy = _basePickBy, hasIn = hasIn_1;
+  var basePickBy = _basePickBy,
+    hasIn = hasIn_1;
   function basePick$1(object, paths) {
-    return basePickBy(object, paths, function(value, path) {
+    return basePickBy(object, paths, function (value, path) {
       return hasIn(object, path);
     });
   }
   var _basePick = basePick$1;
   function arrayPush$3(array, values) {
-    var index = -1, length = values.length, offset = array.length;
+    var index = -1,
+      length = values.length,
+      offset = array.length;
     while (++index < length) {
       array[offset + index] = values[index];
     }
     return array;
   }
   var _arrayPush = arrayPush$3;
-  var Symbol$2 = _Symbol, isArguments$1 = isArguments_1, isArray$3 = isArray_1;
+  var Symbol$2 = _Symbol,
+    isArguments$1 = isArguments_1,
+    isArray$3 = isArray_1;
   var spreadableSymbol = Symbol$2 ? Symbol$2.isConcatSpreadable : void 0;
   function isFlattenable$1(value) {
-    return isArray$3(value) || isArguments$1(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
+    return (
+      isArray$3(value) ||
+      isArguments$1(value) ||
+      !!(spreadableSymbol && value && value[spreadableSymbol])
+    );
   }
   var _isFlattenable = isFlattenable$1;
-  var arrayPush$2 = _arrayPush, isFlattenable = _isFlattenable;
+  var arrayPush$2 = _arrayPush,
+    isFlattenable = _isFlattenable;
   function baseFlatten$1(array, depth, predicate, isStrict, result) {
-    var index = -1, length = array.length;
+    var index = -1,
+      length = array.length;
     predicate || (predicate = isFlattenable);
     result || (result = []);
     while (++index < length) {
@@ -654,8 +837,11 @@ var __publicField = (obj, key, value) => {
   var nativeMax = Math.max;
   function overRest$1(func, start, transform) {
     start = nativeMax(start === void 0 ? func.length - 1 : start, 0);
-    return function() {
-      var args = arguments, index = -1, length = nativeMax(args.length - start, 0), array = Array(length);
+    return function () {
+      var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        array = Array(length);
       while (++index < length) {
         array[index] = args[start + index];
       }
@@ -670,7 +856,7 @@ var __publicField = (obj, key, value) => {
   }
   var _overRest = overRest$1;
   function constant$1(value) {
-    return function() {
+    return function () {
       return value;
     };
   }
@@ -679,22 +865,29 @@ var __publicField = (obj, key, value) => {
     return value;
   }
   var identity_1 = identity$1;
-  var constant = constant_1, defineProperty = _defineProperty, identity = identity_1;
-  var baseSetToString$1 = !defineProperty ? identity : function(func, string) {
-    return defineProperty(func, "toString", {
-      "configurable": true,
-      "enumerable": false,
-      "value": constant(string),
-      "writable": true
-    });
-  };
+  var constant = constant_1,
+    defineProperty = _defineProperty,
+    identity = identity_1;
+  var baseSetToString$1 = !defineProperty
+    ? identity
+    : function (func, string) {
+        return defineProperty(func, 'toString', {
+          configurable: true,
+          enumerable: false,
+          value: constant(string),
+          writable: true,
+        });
+      };
   var _baseSetToString = baseSetToString$1;
-  var HOT_COUNT = 800, HOT_SPAN = 16;
+  var HOT_COUNT = 800,
+    HOT_SPAN = 16;
   var nativeNow = Date.now;
   function shortOut$1(func) {
-    var count = 0, lastCalled = 0;
-    return function() {
-      var stamp = nativeNow(), remaining = HOT_SPAN - (stamp - lastCalled);
+    var count = 0,
+      lastCalled = 0;
+    return function () {
+      var stamp = nativeNow(),
+        remaining = HOT_SPAN - (stamp - lastCalled);
       lastCalled = stamp;
       if (remaining > 0) {
         if (++count >= HOT_COUNT) {
@@ -707,23 +900,31 @@ var __publicField = (obj, key, value) => {
     };
   }
   var _shortOut = shortOut$1;
-  var baseSetToString = _baseSetToString, shortOut = _shortOut;
+  var baseSetToString = _baseSetToString,
+    shortOut = _shortOut;
   var setToString$1 = shortOut(baseSetToString);
   var _setToString = setToString$1;
-  var flatten = flatten_1, overRest = _overRest, setToString = _setToString;
+  var flatten = flatten_1,
+    overRest = _overRest,
+    setToString = _setToString;
   function flatRest$1(func) {
-    return setToString(overRest(func, void 0, flatten), func + "");
+    return setToString(overRest(func, void 0, flatten), func + '');
   }
   var _flatRest = flatRest$1;
-  var basePick = _basePick, flatRest = _flatRest;
-  var pick = flatRest(function(object, paths) {
+  var basePick = _basePick,
+    flatRest = _flatRest;
+  var pick = flatRest(function (object, paths) {
     return object == null ? {} : basePick(object, paths);
   });
   var pick_1 = pick;
-  var baseGetTag$2 = _baseGetTag, isObjectLike$3 = isObjectLike_1;
-  var numberTag$3 = "[object Number]";
+  var baseGetTag$2 = _baseGetTag,
+    isObjectLike$3 = isObjectLike_1;
+  var numberTag$3 = '[object Number]';
   function isNumber(value) {
-    return typeof value == "number" || isObjectLike$3(value) && baseGetTag$2(value) == numberTag$3;
+    return (
+      typeof value == 'number' ||
+      (isObjectLike$3(value) && baseGetTag$2(value) == numberTag$3)
+    );
   }
   var isNumber_1 = isNumber;
   var ListCache$2 = _ListCache;
@@ -733,7 +934,8 @@ var __publicField = (obj, key, value) => {
   }
   var _stackClear = stackClear$1;
   function stackDelete$1(key) {
-    var data = this.__data__, result = data["delete"](key);
+    var data = this.__data__,
+      result = data['delete'](key);
     this.size = data.size;
     return result;
   }
@@ -746,7 +948,9 @@ var __publicField = (obj, key, value) => {
     return this.__data__.has(key);
   }
   var _stackHas = stackHas$1;
-  var ListCache$1 = _ListCache, Map$2 = _Map, MapCache = _MapCache;
+  var ListCache$1 = _ListCache,
+    Map$2 = _Map,
+    MapCache = _MapCache;
   var LARGE_ARRAY_SIZE = 200;
   function stackSet$1(key, value) {
     var data = this.__data__;
@@ -764,19 +968,25 @@ var __publicField = (obj, key, value) => {
     return this;
   }
   var _stackSet = stackSet$1;
-  var ListCache = _ListCache, stackClear = _stackClear, stackDelete = _stackDelete, stackGet = _stackGet, stackHas = _stackHas, stackSet = _stackSet;
+  var ListCache = _ListCache,
+    stackClear = _stackClear,
+    stackDelete = _stackDelete,
+    stackGet = _stackGet,
+    stackHas = _stackHas,
+    stackSet = _stackSet;
   function Stack$1(entries) {
-    var data = this.__data__ = new ListCache(entries);
+    var data = (this.__data__ = new ListCache(entries));
     this.size = data.size;
   }
   Stack$1.prototype.clear = stackClear;
-  Stack$1.prototype["delete"] = stackDelete;
+  Stack$1.prototype['delete'] = stackDelete;
   Stack$1.prototype.get = stackGet;
   Stack$1.prototype.has = stackHas;
   Stack$1.prototype.set = stackSet;
   var _Stack = Stack$1;
   function arrayEach$1(array, iteratee) {
-    var index = -1, length = array == null ? 0 : array.length;
+    var index = -1,
+      length = array == null ? 0 : array.length;
     while (++index < length) {
       if (iteratee(array[index], index, array) === false) {
         break;
@@ -785,14 +995,18 @@ var __publicField = (obj, key, value) => {
     return array;
   }
   var _arrayEach = arrayEach$1;
-  var assignValue$1 = _assignValue, baseAssignValue = _baseAssignValue;
+  var assignValue$1 = _assignValue,
+    baseAssignValue = _baseAssignValue;
   function copyObject$4(source, props, object, customizer) {
     var isNew = !object;
     object || (object = {});
-    var index = -1, length = props.length;
+    var index = -1,
+      length = props.length;
     while (++index < length) {
       var key = props[index];
-      var newValue = customizer ? customizer(object[key], source[key], key, object, source) : void 0;
+      var newValue = customizer
+        ? customizer(object[key], source[key], key, object, source)
+        : void 0;
       if (newValue === void 0) {
         newValue = source[key];
       }
@@ -806,7 +1020,8 @@ var __publicField = (obj, key, value) => {
   }
   var _copyObject = copyObject$4;
   function baseTimes$1(n, iteratee) {
-    var index = -1, result = Array(n);
+    var index = -1,
+      result = Array(n);
     while (++index < n) {
       result[index] = iteratee(index);
     }
@@ -818,62 +1033,146 @@ var __publicField = (obj, key, value) => {
     return false;
   }
   var stubFalse_1 = stubFalse;
-  (function(module2, exports2) {
-    var root2 = _root, stubFalse2 = stubFalse_1;
+  (function (module2, exports2) {
+    var root2 = _root,
+      stubFalse2 = stubFalse_1;
     var freeExports = exports2 && !exports2.nodeType && exports2;
-    var freeModule = freeExports && true && module2 && !module2.nodeType && module2;
+    var freeModule =
+      freeExports && true && module2 && !module2.nodeType && module2;
     var moduleExports = freeModule && freeModule.exports === freeExports;
     var Buffer2 = moduleExports ? root2.Buffer : void 0;
     var nativeIsBuffer = Buffer2 ? Buffer2.isBuffer : void 0;
     var isBuffer2 = nativeIsBuffer || stubFalse2;
     module2.exports = isBuffer2;
   })(isBuffer$2, isBuffer$2.exports);
-  var baseGetTag$1 = _baseGetTag, isLength$1 = isLength_1, isObjectLike$2 = isObjectLike_1;
-  var argsTag$1 = "[object Arguments]", arrayTag$1 = "[object Array]", boolTag$2 = "[object Boolean]", dateTag$2 = "[object Date]", errorTag$1 = "[object Error]", funcTag$1 = "[object Function]", mapTag$4 = "[object Map]", numberTag$2 = "[object Number]", objectTag$2 = "[object Object]", regexpTag$2 = "[object RegExp]", setTag$4 = "[object Set]", stringTag$2 = "[object String]", weakMapTag$2 = "[object WeakMap]";
-  var arrayBufferTag$2 = "[object ArrayBuffer]", dataViewTag$3 = "[object DataView]", float32Tag$2 = "[object Float32Array]", float64Tag$2 = "[object Float64Array]", int8Tag$2 = "[object Int8Array]", int16Tag$2 = "[object Int16Array]", int32Tag$2 = "[object Int32Array]", uint8Tag$2 = "[object Uint8Array]", uint8ClampedTag$2 = "[object Uint8ClampedArray]", uint16Tag$2 = "[object Uint16Array]", uint32Tag$2 = "[object Uint32Array]";
+  var baseGetTag$1 = _baseGetTag,
+    isLength$1 = isLength_1,
+    isObjectLike$2 = isObjectLike_1;
+  var argsTag$1 = '[object Arguments]',
+    arrayTag$1 = '[object Array]',
+    boolTag$2 = '[object Boolean]',
+    dateTag$2 = '[object Date]',
+    errorTag$1 = '[object Error]',
+    funcTag$1 = '[object Function]',
+    mapTag$4 = '[object Map]',
+    numberTag$2 = '[object Number]',
+    objectTag$2 = '[object Object]',
+    regexpTag$2 = '[object RegExp]',
+    setTag$4 = '[object Set]',
+    stringTag$2 = '[object String]',
+    weakMapTag$2 = '[object WeakMap]';
+  var arrayBufferTag$2 = '[object ArrayBuffer]',
+    dataViewTag$3 = '[object DataView]',
+    float32Tag$2 = '[object Float32Array]',
+    float64Tag$2 = '[object Float64Array]',
+    int8Tag$2 = '[object Int8Array]',
+    int16Tag$2 = '[object Int16Array]',
+    int32Tag$2 = '[object Int32Array]',
+    uint8Tag$2 = '[object Uint8Array]',
+    uint8ClampedTag$2 = '[object Uint8ClampedArray]',
+    uint16Tag$2 = '[object Uint16Array]',
+    uint32Tag$2 = '[object Uint32Array]';
   var typedArrayTags = {};
-  typedArrayTags[float32Tag$2] = typedArrayTags[float64Tag$2] = typedArrayTags[int8Tag$2] = typedArrayTags[int16Tag$2] = typedArrayTags[int32Tag$2] = typedArrayTags[uint8Tag$2] = typedArrayTags[uint8ClampedTag$2] = typedArrayTags[uint16Tag$2] = typedArrayTags[uint32Tag$2] = true;
-  typedArrayTags[argsTag$1] = typedArrayTags[arrayTag$1] = typedArrayTags[arrayBufferTag$2] = typedArrayTags[boolTag$2] = typedArrayTags[dataViewTag$3] = typedArrayTags[dateTag$2] = typedArrayTags[errorTag$1] = typedArrayTags[funcTag$1] = typedArrayTags[mapTag$4] = typedArrayTags[numberTag$2] = typedArrayTags[objectTag$2] = typedArrayTags[regexpTag$2] = typedArrayTags[setTag$4] = typedArrayTags[stringTag$2] = typedArrayTags[weakMapTag$2] = false;
+  typedArrayTags[float32Tag$2] =
+    typedArrayTags[float64Tag$2] =
+    typedArrayTags[int8Tag$2] =
+    typedArrayTags[int16Tag$2] =
+    typedArrayTags[int32Tag$2] =
+    typedArrayTags[uint8Tag$2] =
+    typedArrayTags[uint8ClampedTag$2] =
+    typedArrayTags[uint16Tag$2] =
+    typedArrayTags[uint32Tag$2] =
+      true;
+  typedArrayTags[argsTag$1] =
+    typedArrayTags[arrayTag$1] =
+    typedArrayTags[arrayBufferTag$2] =
+    typedArrayTags[boolTag$2] =
+    typedArrayTags[dataViewTag$3] =
+    typedArrayTags[dateTag$2] =
+    typedArrayTags[errorTag$1] =
+    typedArrayTags[funcTag$1] =
+    typedArrayTags[mapTag$4] =
+    typedArrayTags[numberTag$2] =
+    typedArrayTags[objectTag$2] =
+    typedArrayTags[regexpTag$2] =
+    typedArrayTags[setTag$4] =
+    typedArrayTags[stringTag$2] =
+    typedArrayTags[weakMapTag$2] =
+      false;
   function baseIsTypedArray$1(value) {
-    return isObjectLike$2(value) && isLength$1(value.length) && !!typedArrayTags[baseGetTag$1(value)];
+    return (
+      isObjectLike$2(value) &&
+      isLength$1(value.length) &&
+      !!typedArrayTags[baseGetTag$1(value)]
+    );
   }
   var _baseIsTypedArray = baseIsTypedArray$1;
   function baseUnary$3(func) {
-    return function(value) {
+    return function (value) {
       return func(value);
     };
   }
   var _baseUnary = baseUnary$3;
   var _nodeUtil = { exports: {} };
-  (function(module2, exports2) {
+  (function (module2, exports2) {
     var freeGlobal2 = _freeGlobal;
     var freeExports = exports2 && !exports2.nodeType && exports2;
-    var freeModule = freeExports && true && module2 && !module2.nodeType && module2;
+    var freeModule =
+      freeExports && true && module2 && !module2.nodeType && module2;
     var moduleExports = freeModule && freeModule.exports === freeExports;
     var freeProcess = moduleExports && freeGlobal2.process;
-    var nodeUtil2 = function() {
+    var nodeUtil2 = (function () {
       try {
-        var types = freeModule && freeModule.require && freeModule.require("util").types;
+        var types =
+          freeModule && freeModule.require && freeModule.require('util').types;
         if (types) {
           return types;
         }
-        return freeProcess && freeProcess.binding && freeProcess.binding("util");
-      } catch (e) {
-      }
-    }();
+        return (
+          freeProcess && freeProcess.binding && freeProcess.binding('util')
+        );
+      } catch (e) {}
+    })();
     module2.exports = nodeUtil2;
   })(_nodeUtil, _nodeUtil.exports);
-  var baseIsTypedArray = _baseIsTypedArray, baseUnary$2 = _baseUnary, nodeUtil$2 = _nodeUtil.exports;
+  var baseIsTypedArray = _baseIsTypedArray,
+    baseUnary$2 = _baseUnary,
+    nodeUtil$2 = _nodeUtil.exports;
   var nodeIsTypedArray = nodeUtil$2 && nodeUtil$2.isTypedArray;
-  var isTypedArray$1 = nodeIsTypedArray ? baseUnary$2(nodeIsTypedArray) : baseIsTypedArray;
+  var isTypedArray$1 = nodeIsTypedArray
+    ? baseUnary$2(nodeIsTypedArray)
+    : baseIsTypedArray;
   var isTypedArray_1 = isTypedArray$1;
-  var baseTimes = _baseTimes, isArguments = isArguments_1, isArray$2 = isArray_1, isBuffer$1 = isBuffer$2.exports, isIndex = _isIndex, isTypedArray = isTypedArray_1;
+  var baseTimes = _baseTimes,
+    isArguments = isArguments_1,
+    isArray$2 = isArray_1,
+    isBuffer$1 = isBuffer$2.exports,
+    isIndex = _isIndex,
+    isTypedArray = isTypedArray_1;
   var objectProto$5 = Object.prototype;
   var hasOwnProperty$4 = objectProto$5.hasOwnProperty;
   function arrayLikeKeys$2(value, inherited) {
-    var isArr = isArray$2(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer$1(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result = skipIndexes ? baseTimes(value.length, String) : [], length = result.length;
+    var isArr = isArray$2(value),
+      isArg = !isArr && isArguments(value),
+      isBuff = !isArr && !isArg && isBuffer$1(value),
+      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
+      skipIndexes = isArr || isArg || isBuff || isType,
+      result = skipIndexes ? baseTimes(value.length, String) : [],
+      length = result.length;
     for (var key in value) {
-      if ((inherited || hasOwnProperty$4.call(value, key)) && !(skipIndexes && (key == "length" || isBuff && (key == "offset" || key == "parent") || isType && (key == "buffer" || key == "byteLength" || key == "byteOffset") || isIndex(key, length)))) {
+      if (
+        (inherited || hasOwnProperty$4.call(value, key)) &&
+        !(
+          skipIndexes &&
+          (key == 'length' ||
+            (isBuff && (key == 'offset' || key == 'parent')) ||
+            (isType &&
+              (key == 'buffer' ||
+                key == 'byteLength' ||
+                key == 'byteOffset')) ||
+            isIndex(key, length))
+        )
+      ) {
         result.push(key);
       }
     }
@@ -882,12 +1181,13 @@ var __publicField = (obj, key, value) => {
   var _arrayLikeKeys = arrayLikeKeys$2;
   var objectProto$4 = Object.prototype;
   function isPrototype$3(value) {
-    var Ctor = value && value.constructor, proto = typeof Ctor == "function" && Ctor.prototype || objectProto$4;
+    var Ctor = value && value.constructor,
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$4;
     return value === proto;
   }
   var _isPrototype = isPrototype$3;
   function overArg$2(func, transform) {
-    return function(arg) {
+    return function (arg) {
       return func(transform(arg));
     };
   }
@@ -895,7 +1195,8 @@ var __publicField = (obj, key, value) => {
   var overArg$1 = _overArg;
   var nativeKeys$1 = overArg$1(Object.keys, Object);
   var _nativeKeys = nativeKeys$1;
-  var isPrototype$2 = _isPrototype, nativeKeys = _nativeKeys;
+  var isPrototype$2 = _isPrototype,
+    nativeKeys = _nativeKeys;
   var objectProto$3 = Object.prototype;
   var hasOwnProperty$3 = objectProto$3.hasOwnProperty;
   function baseKeys$1(object) {
@@ -904,24 +1205,28 @@ var __publicField = (obj, key, value) => {
     }
     var result = [];
     for (var key in Object(object)) {
-      if (hasOwnProperty$3.call(object, key) && key != "constructor") {
+      if (hasOwnProperty$3.call(object, key) && key != 'constructor') {
         result.push(key);
       }
     }
     return result;
   }
   var _baseKeys = baseKeys$1;
-  var isFunction$1 = isFunction_1, isLength = isLength_1;
+  var isFunction$1 = isFunction_1,
+    isLength = isLength_1;
   function isArrayLike$2(value) {
     return value != null && isLength(value.length) && !isFunction$1(value);
   }
   var isArrayLike_1 = isArrayLike$2;
-  var arrayLikeKeys$1 = _arrayLikeKeys, baseKeys = _baseKeys, isArrayLike$1 = isArrayLike_1;
+  var arrayLikeKeys$1 = _arrayLikeKeys,
+    baseKeys = _baseKeys,
+    isArrayLike$1 = isArrayLike_1;
   function keys$3(object) {
     return isArrayLike$1(object) ? arrayLikeKeys$1(object) : baseKeys(object);
   }
   var keys_1 = keys$3;
-  var copyObject$3 = _copyObject, keys$2 = keys_1;
+  var copyObject$3 = _copyObject,
+    keys$2 = keys_1;
   function baseAssign$1(object, source) {
     return object && copyObject$3(source, keys$2(source), object);
   }
@@ -936,51 +1241,70 @@ var __publicField = (obj, key, value) => {
     return result;
   }
   var _nativeKeysIn = nativeKeysIn$1;
-  var isObject$3 = isObject_1, isPrototype$1 = _isPrototype, nativeKeysIn = _nativeKeysIn;
+  var isObject$3 = isObject_1,
+    isPrototype$1 = _isPrototype,
+    nativeKeysIn = _nativeKeysIn;
   var objectProto$2 = Object.prototype;
   var hasOwnProperty$2 = objectProto$2.hasOwnProperty;
   function baseKeysIn$1(object) {
     if (!isObject$3(object)) {
       return nativeKeysIn(object);
     }
-    var isProto = isPrototype$1(object), result = [];
+    var isProto = isPrototype$1(object),
+      result = [];
     for (var key in object) {
-      if (!(key == "constructor" && (isProto || !hasOwnProperty$2.call(object, key)))) {
+      if (
+        !(
+          key == 'constructor' &&
+          (isProto || !hasOwnProperty$2.call(object, key))
+        )
+      ) {
         result.push(key);
       }
     }
     return result;
   }
   var _baseKeysIn = baseKeysIn$1;
-  var arrayLikeKeys = _arrayLikeKeys, baseKeysIn = _baseKeysIn, isArrayLike = isArrayLike_1;
+  var arrayLikeKeys = _arrayLikeKeys,
+    baseKeysIn = _baseKeysIn,
+    isArrayLike = isArrayLike_1;
   function keysIn$3(object) {
-    return isArrayLike(object) ? arrayLikeKeys(object, true) : baseKeysIn(object);
+    return isArrayLike(object)
+      ? arrayLikeKeys(object, true)
+      : baseKeysIn(object);
   }
   var keysIn_1 = keysIn$3;
-  var copyObject$2 = _copyObject, keysIn$2 = keysIn_1;
+  var copyObject$2 = _copyObject,
+    keysIn$2 = keysIn_1;
   function baseAssignIn$1(object, source) {
     return object && copyObject$2(source, keysIn$2(source), object);
   }
   var _baseAssignIn = baseAssignIn$1;
   var _cloneBuffer = { exports: {} };
-  (function(module2, exports2) {
+  (function (module2, exports2) {
     var root2 = _root;
     var freeExports = exports2 && !exports2.nodeType && exports2;
-    var freeModule = freeExports && true && module2 && !module2.nodeType && module2;
+    var freeModule =
+      freeExports && true && module2 && !module2.nodeType && module2;
     var moduleExports = freeModule && freeModule.exports === freeExports;
-    var Buffer2 = moduleExports ? root2.Buffer : void 0, allocUnsafe = Buffer2 ? Buffer2.allocUnsafe : void 0;
+    var Buffer2 = moduleExports ? root2.Buffer : void 0,
+      allocUnsafe = Buffer2 ? Buffer2.allocUnsafe : void 0;
     function cloneBuffer2(buffer, isDeep) {
       if (isDeep) {
         return buffer.slice();
       }
-      var length = buffer.length, result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+      var length = buffer.length,
+        result = allocUnsafe
+          ? allocUnsafe(length)
+          : new buffer.constructor(length);
       buffer.copy(result);
       return result;
     }
     module2.exports = cloneBuffer2;
   })(_cloneBuffer, _cloneBuffer.exports);
   function copyArray$1(source, array) {
-    var index = -1, length = source.length;
+    var index = -1,
+      length = source.length;
     array || (array = Array(length));
     while (++index < length) {
       array[index] = source[index];
@@ -989,7 +1313,10 @@ var __publicField = (obj, key, value) => {
   }
   var _copyArray = copyArray$1;
   function arrayFilter$1(array, predicate) {
-    var index = -1, length = array == null ? 0 : array.length, resIndex = 0, result = [];
+    var index = -1,
+      length = array == null ? 0 : array.length,
+      resIndex = 0,
+      result = [];
     while (++index < length) {
       var value = array[index];
       if (predicate(value, index, array)) {
@@ -1003,21 +1330,25 @@ var __publicField = (obj, key, value) => {
     return [];
   }
   var stubArray_1 = stubArray$2;
-  var arrayFilter = _arrayFilter, stubArray$1 = stubArray_1;
+  var arrayFilter = _arrayFilter,
+    stubArray$1 = stubArray_1;
   var objectProto$1 = Object.prototype;
   var propertyIsEnumerable = objectProto$1.propertyIsEnumerable;
   var nativeGetSymbols$1 = Object.getOwnPropertySymbols;
-  var getSymbols$3 = !nativeGetSymbols$1 ? stubArray$1 : function(object) {
-    if (object == null) {
-      return [];
-    }
-    object = Object(object);
-    return arrayFilter(nativeGetSymbols$1(object), function(symbol) {
-      return propertyIsEnumerable.call(object, symbol);
-    });
-  };
+  var getSymbols$3 = !nativeGetSymbols$1
+    ? stubArray$1
+    : function (object) {
+        if (object == null) {
+          return [];
+        }
+        object = Object(object);
+        return arrayFilter(nativeGetSymbols$1(object), function (symbol) {
+          return propertyIsEnumerable.call(object, symbol);
+        });
+      };
   var _getSymbols = getSymbols$3;
-  var copyObject$1 = _copyObject, getSymbols$2 = _getSymbols;
+  var copyObject$1 = _copyObject,
+    getSymbols$2 = _getSymbols;
   function copySymbols$1(source, object) {
     return copyObject$1(source, getSymbols$2(source), object);
   }
@@ -1025,58 +1356,95 @@ var __publicField = (obj, key, value) => {
   var overArg = _overArg;
   var getPrototype$2 = overArg(Object.getPrototypeOf, Object);
   var _getPrototype = getPrototype$2;
-  var arrayPush$1 = _arrayPush, getPrototype$1 = _getPrototype, getSymbols$1 = _getSymbols, stubArray = stubArray_1;
+  var arrayPush$1 = _arrayPush,
+    getPrototype$1 = _getPrototype,
+    getSymbols$1 = _getSymbols,
+    stubArray = stubArray_1;
   var nativeGetSymbols = Object.getOwnPropertySymbols;
-  var getSymbolsIn$2 = !nativeGetSymbols ? stubArray : function(object) {
-    var result = [];
-    while (object) {
-      arrayPush$1(result, getSymbols$1(object));
-      object = getPrototype$1(object);
-    }
-    return result;
-  };
+  var getSymbolsIn$2 = !nativeGetSymbols
+    ? stubArray
+    : function (object) {
+        var result = [];
+        while (object) {
+          arrayPush$1(result, getSymbols$1(object));
+          object = getPrototype$1(object);
+        }
+        return result;
+      };
   var _getSymbolsIn = getSymbolsIn$2;
-  var copyObject = _copyObject, getSymbolsIn$1 = _getSymbolsIn;
+  var copyObject = _copyObject,
+    getSymbolsIn$1 = _getSymbolsIn;
   function copySymbolsIn$1(source, object) {
     return copyObject(source, getSymbolsIn$1(source), object);
   }
   var _copySymbolsIn = copySymbolsIn$1;
-  var arrayPush = _arrayPush, isArray$1 = isArray_1;
+  var arrayPush = _arrayPush,
+    isArray$1 = isArray_1;
   function baseGetAllKeys$2(object, keysFunc, symbolsFunc) {
     var result = keysFunc(object);
     return isArray$1(object) ? result : arrayPush(result, symbolsFunc(object));
   }
   var _baseGetAllKeys = baseGetAllKeys$2;
-  var baseGetAllKeys$1 = _baseGetAllKeys, getSymbols = _getSymbols, keys$1 = keys_1;
+  var baseGetAllKeys$1 = _baseGetAllKeys,
+    getSymbols = _getSymbols,
+    keys$1 = keys_1;
   function getAllKeys$1(object) {
     return baseGetAllKeys$1(object, keys$1, getSymbols);
   }
   var _getAllKeys = getAllKeys$1;
-  var baseGetAllKeys = _baseGetAllKeys, getSymbolsIn = _getSymbolsIn, keysIn$1 = keysIn_1;
+  var baseGetAllKeys = _baseGetAllKeys,
+    getSymbolsIn = _getSymbolsIn,
+    keysIn$1 = keysIn_1;
   function getAllKeysIn$1(object) {
     return baseGetAllKeys(object, keysIn$1, getSymbolsIn);
   }
   var _getAllKeysIn = getAllKeysIn$1;
-  var getNative$3 = _getNative, root$4 = _root;
-  var DataView$1 = getNative$3(root$4, "DataView");
+  var getNative$3 = _getNative,
+    root$4 = _root;
+  var DataView$1 = getNative$3(root$4, 'DataView');
   var _DataView = DataView$1;
-  var getNative$2 = _getNative, root$3 = _root;
-  var Promise$2 = getNative$2(root$3, "Promise");
+  var getNative$2 = _getNative,
+    root$3 = _root;
+  var Promise$2 = getNative$2(root$3, 'Promise');
   var _Promise = Promise$2;
-  var getNative$1 = _getNative, root$2 = _root;
-  var Set$1 = getNative$1(root$2, "Set");
+  var getNative$1 = _getNative,
+    root$2 = _root;
+  var Set$1 = getNative$1(root$2, 'Set');
   var _Set = Set$1;
-  var getNative = _getNative, root$1 = _root;
-  var WeakMap$1 = getNative(root$1, "WeakMap");
+  var getNative = _getNative,
+    root$1 = _root;
+  var WeakMap$1 = getNative(root$1, 'WeakMap');
   var _WeakMap = WeakMap$1;
-  var DataView = _DataView, Map$1 = _Map, Promise$1 = _Promise, Set = _Set, WeakMap = _WeakMap, baseGetTag = _baseGetTag, toSource = _toSource;
-  var mapTag$3 = "[object Map]", objectTag$1 = "[object Object]", promiseTag = "[object Promise]", setTag$3 = "[object Set]", weakMapTag$1 = "[object WeakMap]";
-  var dataViewTag$2 = "[object DataView]";
-  var dataViewCtorString = toSource(DataView), mapCtorString = toSource(Map$1), promiseCtorString = toSource(Promise$1), setCtorString = toSource(Set), weakMapCtorString = toSource(WeakMap);
+  var DataView = _DataView,
+    Map$1 = _Map,
+    Promise$1 = _Promise,
+    Set = _Set,
+    WeakMap = _WeakMap,
+    baseGetTag = _baseGetTag,
+    toSource = _toSource;
+  var mapTag$3 = '[object Map]',
+    objectTag$1 = '[object Object]',
+    promiseTag = '[object Promise]',
+    setTag$3 = '[object Set]',
+    weakMapTag$1 = '[object WeakMap]';
+  var dataViewTag$2 = '[object DataView]';
+  var dataViewCtorString = toSource(DataView),
+    mapCtorString = toSource(Map$1),
+    promiseCtorString = toSource(Promise$1),
+    setCtorString = toSource(Set),
+    weakMapCtorString = toSource(WeakMap);
   var getTag$3 = baseGetTag;
-  if (DataView && getTag$3(new DataView(new ArrayBuffer(1))) != dataViewTag$2 || Map$1 && getTag$3(new Map$1()) != mapTag$3 || Promise$1 && getTag$3(Promise$1.resolve()) != promiseTag || Set && getTag$3(new Set()) != setTag$3 || WeakMap && getTag$3(new WeakMap()) != weakMapTag$1) {
-    getTag$3 = function(value) {
-      var result = baseGetTag(value), Ctor = result == objectTag$1 ? value.constructor : void 0, ctorString = Ctor ? toSource(Ctor) : "";
+  if (
+    (DataView && getTag$3(new DataView(new ArrayBuffer(1))) != dataViewTag$2) ||
+    (Map$1 && getTag$3(new Map$1()) != mapTag$3) ||
+    (Promise$1 && getTag$3(Promise$1.resolve()) != promiseTag) ||
+    (Set && getTag$3(new Set()) != setTag$3) ||
+    (WeakMap && getTag$3(new WeakMap()) != weakMapTag$1)
+  ) {
+    getTag$3 = function (value) {
+      var result = baseGetTag(value),
+        Ctor = result == objectTag$1 ? value.constructor : void 0,
+        ctorString = Ctor ? toSource(Ctor) : '';
       if (ctorString) {
         switch (ctorString) {
           case dataViewCtorString:
@@ -1098,8 +1466,13 @@ var __publicField = (obj, key, value) => {
   var objectProto = Object.prototype;
   var hasOwnProperty$1 = objectProto.hasOwnProperty;
   function initCloneArray$1(array) {
-    var length = array.length, result = new array.constructor(length);
-    if (length && typeof array[0] == "string" && hasOwnProperty$1.call(array, "index")) {
+    var length = array.length,
+      result = new array.constructor(length);
+    if (
+      length &&
+      typeof array[0] == 'string' &&
+      hasOwnProperty$1.call(array, 'index')
+    ) {
       result.index = array.index;
       result.input = array.input;
     }
@@ -1119,7 +1492,11 @@ var __publicField = (obj, key, value) => {
   var cloneArrayBuffer$2 = _cloneArrayBuffer;
   function cloneDataView$1(dataView, isDeep) {
     var buffer = isDeep ? cloneArrayBuffer$2(dataView.buffer) : dataView.buffer;
-    return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+    return new dataView.constructor(
+      buffer,
+      dataView.byteOffset,
+      dataView.byteLength,
+    );
   }
   var _cloneDataView = cloneDataView$1;
   var reFlags = /\w*$/;
@@ -1130,20 +1507,48 @@ var __publicField = (obj, key, value) => {
   }
   var _cloneRegExp = cloneRegExp$1;
   var Symbol$1 = _Symbol;
-  var symbolProto = Symbol$1 ? Symbol$1.prototype : void 0, symbolValueOf = symbolProto ? symbolProto.valueOf : void 0;
+  var symbolProto = Symbol$1 ? Symbol$1.prototype : void 0,
+    symbolValueOf = symbolProto ? symbolProto.valueOf : void 0;
   function cloneSymbol$1(symbol) {
     return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
   }
   var _cloneSymbol = cloneSymbol$1;
   var cloneArrayBuffer$1 = _cloneArrayBuffer;
   function cloneTypedArray$1(typedArray, isDeep) {
-    var buffer = isDeep ? cloneArrayBuffer$1(typedArray.buffer) : typedArray.buffer;
-    return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+    var buffer = isDeep
+      ? cloneArrayBuffer$1(typedArray.buffer)
+      : typedArray.buffer;
+    return new typedArray.constructor(
+      buffer,
+      typedArray.byteOffset,
+      typedArray.length,
+    );
   }
   var _cloneTypedArray = cloneTypedArray$1;
-  var cloneArrayBuffer = _cloneArrayBuffer, cloneDataView = _cloneDataView, cloneRegExp = _cloneRegExp, cloneSymbol = _cloneSymbol, cloneTypedArray = _cloneTypedArray;
-  var boolTag$1 = "[object Boolean]", dateTag$1 = "[object Date]", mapTag$2 = "[object Map]", numberTag$1 = "[object Number]", regexpTag$1 = "[object RegExp]", setTag$2 = "[object Set]", stringTag$1 = "[object String]", symbolTag$1 = "[object Symbol]";
-  var arrayBufferTag$1 = "[object ArrayBuffer]", dataViewTag$1 = "[object DataView]", float32Tag$1 = "[object Float32Array]", float64Tag$1 = "[object Float64Array]", int8Tag$1 = "[object Int8Array]", int16Tag$1 = "[object Int16Array]", int32Tag$1 = "[object Int32Array]", uint8Tag$1 = "[object Uint8Array]", uint8ClampedTag$1 = "[object Uint8ClampedArray]", uint16Tag$1 = "[object Uint16Array]", uint32Tag$1 = "[object Uint32Array]";
+  var cloneArrayBuffer = _cloneArrayBuffer,
+    cloneDataView = _cloneDataView,
+    cloneRegExp = _cloneRegExp,
+    cloneSymbol = _cloneSymbol,
+    cloneTypedArray = _cloneTypedArray;
+  var boolTag$1 = '[object Boolean]',
+    dateTag$1 = '[object Date]',
+    mapTag$2 = '[object Map]',
+    numberTag$1 = '[object Number]',
+    regexpTag$1 = '[object RegExp]',
+    setTag$2 = '[object Set]',
+    stringTag$1 = '[object String]',
+    symbolTag$1 = '[object Symbol]';
+  var arrayBufferTag$1 = '[object ArrayBuffer]',
+    dataViewTag$1 = '[object DataView]',
+    float32Tag$1 = '[object Float32Array]',
+    float64Tag$1 = '[object Float64Array]',
+    int8Tag$1 = '[object Int8Array]',
+    int16Tag$1 = '[object Int16Array]',
+    int32Tag$1 = '[object Int32Array]',
+    uint8Tag$1 = '[object Uint8Array]',
+    uint8ClampedTag$1 = '[object Uint8ClampedArray]',
+    uint16Tag$1 = '[object Uint16Array]',
+    uint32Tag$1 = '[object Uint32Array]';
   function initCloneByTag$1(object, tag, isDeep) {
     var Ctor = object.constructor;
     switch (tag) {
@@ -1180,10 +1585,9 @@ var __publicField = (obj, key, value) => {
   var _initCloneByTag = initCloneByTag$1;
   var isObject$2 = isObject_1;
   var objectCreate = Object.create;
-  var baseCreate$1 = function() {
-    function object() {
-    }
-    return function(proto) {
+  var baseCreate$1 = (function () {
+    function object() {}
+    return function (proto) {
       if (!isObject$2(proto)) {
         return {};
       }
@@ -1195,44 +1599,131 @@ var __publicField = (obj, key, value) => {
       object.prototype = void 0;
       return result;
     };
-  }();
+  })();
   var _baseCreate = baseCreate$1;
-  var baseCreate = _baseCreate, getPrototype = _getPrototype, isPrototype = _isPrototype;
+  var baseCreate = _baseCreate,
+    getPrototype = _getPrototype,
+    isPrototype = _isPrototype;
   function initCloneObject$1(object) {
-    return typeof object.constructor == "function" && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
+    return typeof object.constructor == 'function' && !isPrototype(object)
+      ? baseCreate(getPrototype(object))
+      : {};
   }
   var _initCloneObject = initCloneObject$1;
-  var getTag$2 = _getTag, isObjectLike$1 = isObjectLike_1;
-  var mapTag$1 = "[object Map]";
+  var getTag$2 = _getTag,
+    isObjectLike$1 = isObjectLike_1;
+  var mapTag$1 = '[object Map]';
   function baseIsMap$1(value) {
     return isObjectLike$1(value) && getTag$2(value) == mapTag$1;
   }
   var _baseIsMap = baseIsMap$1;
-  var baseIsMap = _baseIsMap, baseUnary$1 = _baseUnary, nodeUtil$1 = _nodeUtil.exports;
+  var baseIsMap = _baseIsMap,
+    baseUnary$1 = _baseUnary,
+    nodeUtil$1 = _nodeUtil.exports;
   var nodeIsMap = nodeUtil$1 && nodeUtil$1.isMap;
   var isMap$1 = nodeIsMap ? baseUnary$1(nodeIsMap) : baseIsMap;
   var isMap_1 = isMap$1;
-  var getTag$1 = _getTag, isObjectLike = isObjectLike_1;
-  var setTag$1 = "[object Set]";
+  var getTag$1 = _getTag,
+    isObjectLike = isObjectLike_1;
+  var setTag$1 = '[object Set]';
   function baseIsSet$1(value) {
     return isObjectLike(value) && getTag$1(value) == setTag$1;
   }
   var _baseIsSet = baseIsSet$1;
-  var baseIsSet = _baseIsSet, baseUnary = _baseUnary, nodeUtil = _nodeUtil.exports;
+  var baseIsSet = _baseIsSet,
+    baseUnary = _baseUnary,
+    nodeUtil = _nodeUtil.exports;
   var nodeIsSet = nodeUtil && nodeUtil.isSet;
   var isSet$1 = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
   var isSet_1 = isSet$1;
-  var Stack = _Stack, arrayEach = _arrayEach, assignValue = _assignValue, baseAssign = _baseAssign, baseAssignIn = _baseAssignIn, cloneBuffer = _cloneBuffer.exports, copyArray = _copyArray, copySymbols = _copySymbols, copySymbolsIn = _copySymbolsIn, getAllKeys = _getAllKeys, getAllKeysIn = _getAllKeysIn, getTag = _getTag, initCloneArray = _initCloneArray, initCloneByTag = _initCloneByTag, initCloneObject = _initCloneObject, isArray = isArray_1, isBuffer = isBuffer$2.exports, isMap = isMap_1, isObject$1 = isObject_1, isSet = isSet_1, keys = keys_1, keysIn = keysIn_1;
-  var CLONE_DEEP_FLAG$1 = 1, CLONE_FLAT_FLAG = 2, CLONE_SYMBOLS_FLAG$1 = 4;
-  var argsTag = "[object Arguments]", arrayTag = "[object Array]", boolTag = "[object Boolean]", dateTag = "[object Date]", errorTag = "[object Error]", funcTag = "[object Function]", genTag = "[object GeneratorFunction]", mapTag = "[object Map]", numberTag = "[object Number]", objectTag = "[object Object]", regexpTag = "[object RegExp]", setTag = "[object Set]", stringTag = "[object String]", symbolTag = "[object Symbol]", weakMapTag = "[object WeakMap]";
-  var arrayBufferTag = "[object ArrayBuffer]", dataViewTag = "[object DataView]", float32Tag = "[object Float32Array]", float64Tag = "[object Float64Array]", int8Tag = "[object Int8Array]", int16Tag = "[object Int16Array]", int32Tag = "[object Int32Array]", uint8Tag = "[object Uint8Array]", uint8ClampedTag = "[object Uint8ClampedArray]", uint16Tag = "[object Uint16Array]", uint32Tag = "[object Uint32Array]";
+  var Stack = _Stack,
+    arrayEach = _arrayEach,
+    assignValue = _assignValue,
+    baseAssign = _baseAssign,
+    baseAssignIn = _baseAssignIn,
+    cloneBuffer = _cloneBuffer.exports,
+    copyArray = _copyArray,
+    copySymbols = _copySymbols,
+    copySymbolsIn = _copySymbolsIn,
+    getAllKeys = _getAllKeys,
+    getAllKeysIn = _getAllKeysIn,
+    getTag = _getTag,
+    initCloneArray = _initCloneArray,
+    initCloneByTag = _initCloneByTag,
+    initCloneObject = _initCloneObject,
+    isArray = isArray_1,
+    isBuffer = isBuffer$2.exports,
+    isMap = isMap_1,
+    isObject$1 = isObject_1,
+    isSet = isSet_1,
+    keys = keys_1,
+    keysIn = keysIn_1;
+  var CLONE_DEEP_FLAG$1 = 1,
+    CLONE_FLAT_FLAG = 2,
+    CLONE_SYMBOLS_FLAG$1 = 4;
+  var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    symbolTag = '[object Symbol]',
+    weakMapTag = '[object WeakMap]';
+  var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
   var cloneableTags = {};
-  cloneableTags[argsTag] = cloneableTags[arrayTag] = cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] = cloneableTags[boolTag] = cloneableTags[dateTag] = cloneableTags[float32Tag] = cloneableTags[float64Tag] = cloneableTags[int8Tag] = cloneableTags[int16Tag] = cloneableTags[int32Tag] = cloneableTags[mapTag] = cloneableTags[numberTag] = cloneableTags[objectTag] = cloneableTags[regexpTag] = cloneableTags[setTag] = cloneableTags[stringTag] = cloneableTags[symbolTag] = cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] = cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
-  cloneableTags[errorTag] = cloneableTags[funcTag] = cloneableTags[weakMapTag] = false;
+  cloneableTags[argsTag] =
+    cloneableTags[arrayTag] =
+    cloneableTags[arrayBufferTag] =
+    cloneableTags[dataViewTag] =
+    cloneableTags[boolTag] =
+    cloneableTags[dateTag] =
+    cloneableTags[float32Tag] =
+    cloneableTags[float64Tag] =
+    cloneableTags[int8Tag] =
+    cloneableTags[int16Tag] =
+    cloneableTags[int32Tag] =
+    cloneableTags[mapTag] =
+    cloneableTags[numberTag] =
+    cloneableTags[objectTag] =
+    cloneableTags[regexpTag] =
+    cloneableTags[setTag] =
+    cloneableTags[stringTag] =
+    cloneableTags[symbolTag] =
+    cloneableTags[uint8Tag] =
+    cloneableTags[uint8ClampedTag] =
+    cloneableTags[uint16Tag] =
+    cloneableTags[uint32Tag] =
+      true;
+  cloneableTags[errorTag] =
+    cloneableTags[funcTag] =
+    cloneableTags[weakMapTag] =
+      false;
   function baseClone$1(value, bitmask, customizer, key, object, stack) {
-    var result, isDeep = bitmask & CLONE_DEEP_FLAG$1, isFlat = bitmask & CLONE_FLAT_FLAG, isFull = bitmask & CLONE_SYMBOLS_FLAG$1;
+    var result,
+      isDeep = bitmask & CLONE_DEEP_FLAG$1,
+      isFlat = bitmask & CLONE_FLAT_FLAG,
+      isFull = bitmask & CLONE_SYMBOLS_FLAG$1;
     if (customizer) {
-      result = object ? customizer(value, key, object, stack) : customizer(value);
+      result = object
+        ? customizer(value, key, object, stack)
+        : customizer(value);
     }
     if (result !== void 0) {
       return result;
@@ -1247,14 +1738,17 @@ var __publicField = (obj, key, value) => {
         return copyArray(value, result);
       }
     } else {
-      var tag = getTag(value), isFunc = tag == funcTag || tag == genTag;
+      var tag = getTag(value),
+        isFunc = tag == funcTag || tag == genTag;
       if (isBuffer(value)) {
         return cloneBuffer(value, isDeep);
       }
-      if (tag == objectTag || tag == argsTag || isFunc && !object) {
+      if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
         result = isFlat || isFunc ? {} : initCloneObject(value);
         if (!isDeep) {
-          return isFlat ? copySymbolsIn(value, baseAssignIn(result, value)) : copySymbols(value, baseAssign(result, value));
+          return isFlat
+            ? copySymbolsIn(value, baseAssignIn(result, value))
+            : copySymbols(value, baseAssign(result, value));
         }
       } else {
         if (!cloneableTags[tag]) {
@@ -1270,28 +1764,44 @@ var __publicField = (obj, key, value) => {
     }
     stack.set(value, result);
     if (isSet(value)) {
-      value.forEach(function(subValue) {
-        result.add(baseClone$1(subValue, bitmask, customizer, subValue, value, stack));
+      value.forEach(function (subValue) {
+        result.add(
+          baseClone$1(subValue, bitmask, customizer, subValue, value, stack),
+        );
       });
     } else if (isMap(value)) {
-      value.forEach(function(subValue, key2) {
-        result.set(key2, baseClone$1(subValue, bitmask, customizer, key2, value, stack));
+      value.forEach(function (subValue, key2) {
+        result.set(
+          key2,
+          baseClone$1(subValue, bitmask, customizer, key2, value, stack),
+        );
       });
     }
-    var keysFunc = isFull ? isFlat ? getAllKeysIn : getAllKeys : isFlat ? keysIn : keys;
+    var keysFunc = isFull
+      ? isFlat
+        ? getAllKeysIn
+        : getAllKeys
+      : isFlat
+      ? keysIn
+      : keys;
     var props = isArr ? void 0 : keysFunc(value);
-    arrayEach(props || value, function(subValue, key2) {
+    arrayEach(props || value, function (subValue, key2) {
       if (props) {
         key2 = subValue;
         subValue = value[key2];
       }
-      assignValue(result, key2, baseClone$1(subValue, bitmask, customizer, key2, value, stack));
+      assignValue(
+        result,
+        key2,
+        baseClone$1(subValue, bitmask, customizer, key2, value, stack),
+      );
     });
     return result;
   }
   var _baseClone = baseClone$1;
   var baseClone = _baseClone;
-  var CLONE_DEEP_FLAG = 1, CLONE_SYMBOLS_FLAG = 4;
+  var CLONE_DEEP_FLAG = 1,
+    CLONE_SYMBOLS_FLAG = 4;
   function cloneDeep(value) {
     return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
   }
@@ -1302,17 +1812,16 @@ var __publicField = (obj, key, value) => {
   	Licensed under the MIT License (MIT), see
   	http://jedwatson.github.io/classnames
   */
-  (function(module2) {
-    (function() {
+  (function (module2) {
+    (function () {
       var hasOwn2 = {}.hasOwnProperty;
       function classNames() {
         var classes = [];
         for (var i = 0; i < arguments.length; i++) {
           var arg = arguments[i];
-          if (!arg)
-            continue;
+          if (!arg) continue;
           var argType = typeof arg;
-          if (argType === "string" || argType === "number") {
+          if (argType === 'string' || argType === 'number') {
             classes.push(arg);
           } else if (Array.isArray(arg)) {
             if (arg.length) {
@@ -1321,8 +1830,11 @@ var __publicField = (obj, key, value) => {
                 classes.push(inner);
               }
             }
-          } else if (argType === "object") {
-            if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
+          } else if (argType === 'object') {
+            if (
+              arg.toString !== Object.prototype.toString &&
+              !arg.toString.toString().includes('[native code]')
+            ) {
               classes.push(arg.toString());
               continue;
             }
@@ -1333,7 +1845,7 @@ var __publicField = (obj, key, value) => {
             }
           }
         }
-        return classes.join(" ");
+        return classes.join(' ');
       }
       if (module2.exports) {
         classNames.default = classNames;
@@ -1343,7 +1855,7 @@ var __publicField = (obj, key, value) => {
       }
     })();
   })(classnames);
-  const consoleTag = "[vue3-aipage-widget]";
+  const consoleTag = '[vue3-aipage-widget]';
   function getFramework(_framework) {
     let defaultFramework = Framework.react;
     if (!_framework) {
@@ -1351,22 +1863,24 @@ var __publicField = (obj, key, value) => {
     }
     let curFramework = _framework.toLowerCase().trim();
     switch (curFramework) {
-      case "jquery":
-      case "jq":
+      case 'jquery':
+      case 'jq':
         curFramework = Framework.jquery;
         break;
-      case "vue2":
-      case "vue 2":
-      case "vue2.0":
-      case "vue 2.0":
+      case 'vue2':
+      case 'vue 2':
+      case 'vue2.0':
+      case 'vue 2.0':
         curFramework = Framework.vue2;
-        console.error("vue3-aipage-widget \u4E0D\u652F\u6301 vue2.0 \u6280\u672F\u6808\uFF0C\u8BF7\u6539\u7528aipage-widget\u652F\u6301\u3002");
+        console.error(
+          'vue3-aipage-widget \u4E0D\u652F\u6301 vue2.0 \u6280\u672F\u6808\uFF0C\u8BF7\u6539\u7528aipage-widget\u652F\u6301\u3002',
+        );
         break;
-      case "vue":
-      case "vue3":
-      case "vue 3":
-      case "vue3.0":
-      case "vue 3.0":
+      case 'vue':
+      case 'vue3':
+      case 'vue 3':
+      case 'vue3.0':
+      case 'vue 3.0':
         curFramework = Framework.vue3;
         break;
       default:
@@ -1375,64 +1889,81 @@ var __publicField = (obj, key, value) => {
     return curFramework;
   }
   var Framework;
-  (function(Framework2) {
-    Framework2["react"] = "react";
-    Framework2["vue2"] = "vue2";
-    Framework2["vue3"] = "vue3";
-    Framework2["jquery"] = "jquery";
+  (function (Framework2) {
+    Framework2['react'] = 'react';
+    Framework2['vue2'] = 'vue2';
+    Framework2['vue3'] = 'vue3';
+    Framework2['jquery'] = 'jquery';
   })(Framework || (Framework = {}));
   function isString$1(str) {
-    return Object.prototype.toString.call(str).slice(8, -1) === "String";
+    return Object.prototype.toString.call(str).slice(8, -1) === 'String';
   }
   function isObject(curObj) {
     let isObject2 = false;
-    if (Object.prototype.toString.call(curObj).slice(8, -1) === "Object") {
+    if (Object.prototype.toString.call(curObj).slice(8, -1) === 'Object') {
       isObject2 = true;
     }
     return isObject2;
   }
   function isNumberFormat(val) {
-    return parseFloat(String(val)).toString() !== "NaN";
+    return parseFloat(String(val)).toString() !== 'NaN';
   }
   function camelToKebab(str) {
-    return str.replace(/([A-Z])/g, "-$1").toLowerCase();
+    return str.replace(/([A-Z])/g, '-$1').toLowerCase();
   }
   function transformComponentId(str) {
     return `-${str}`.replace(/(-[A-Za-z0-9])/g, (m) => {
-      return m.toUpperCase().replace("-", "");
+      return m.toUpperCase().replace('-', '');
     });
   }
   function cloneObject(target, persistOwnProps = true) {
-    const obj = target && target.__super ? Object.create(target.__super, {
-      __super: {
-        value: target.__super,
-        writable: false,
-        enumerable: false
-      }
-    }) : Object.create(Object.prototype);
-    persistOwnProps && target && Object.keys(target).forEach((key) => obj[key] = target[key]);
+    const obj =
+      target && target.__super
+        ? Object.create(target.__super, {
+            __super: {
+              value: target.__super,
+              writable: false,
+              enumerable: false,
+            },
+          })
+        : Object.create(Object.prototype);
+    persistOwnProps &&
+      target &&
+      Object.keys(target).forEach((key) => (obj[key] = target[key]));
     return obj;
   }
   function extendObject(target, src, persistOwnProps = true) {
     const obj = cloneObject(target, persistOwnProps);
-    src && Object.keys(src).forEach((key) => obj[key] = src[key]);
+    src && Object.keys(src).forEach((key) => (obj[key] = src[key]));
     return obj;
   }
   const viewportWidth = 375;
-  const parseThemeColor = function(color) {
+  const parseThemeColor = function (color) {
     return color;
   };
   function toRpx(size) {
-    const result = +[size][size && 0] / 375 * viewportWidth;
+    const result = (+[size][size && 0] / 375) * viewportWidth;
     return Number.isNaN(result) ? void 0 : `${Math.round(result)}px`;
   }
   function getBackgroundStyle(background = {}) {
-    const newBackground = pick_1(cloneDeep_1(background) || {}, "backgroundImage", "backgroundRepeat", "backgroundSize", "backgroundPosition", "backgroundColor");
-    if (background.backgroundImage && /linear-gradient/g.test(background.backgroundImage)) {
+    const newBackground = pick_1(
+      cloneDeep_1(background) || {},
+      'backgroundImage',
+      'backgroundRepeat',
+      'backgroundSize',
+      'backgroundPosition',
+      'backgroundColor',
+    );
+    if (
+      background.backgroundImage &&
+      /linear-gradient/g.test(background.backgroundImage)
+    ) {
       newBackground.backgroundImage = background.backgroundImage;
     } else {
       if (background.backgroundColor) {
-        newBackground.backgroundColor = parseThemeColor(background.backgroundColor);
+        newBackground.backgroundColor = parseThemeColor(
+          background.backgroundColor,
+        );
       }
       if (background.backgroundImage) {
         newBackground.backgroundImage = `url('${background.backgroundImage}')`;
@@ -1441,28 +1972,47 @@ var __publicField = (obj, key, value) => {
     return newBackground;
   }
   function getFontStyle(rawFont = {}) {
-    let font = pick_1(cloneDeep_1(rawFont) || {}, "color", "fontFamily", "lineHeight", "textAlign");
+    let font = pick_1(
+      cloneDeep_1(rawFont) || {},
+      'color',
+      'fontFamily',
+      'lineHeight',
+      'textAlign',
+    );
     if (rawFont.bold) {
-      font.fontWeight = "bold";
+      font.fontWeight = 'bold';
     }
     if (rawFont.italic) {
-      font.fontStyle = "italic";
+      font.fontStyle = 'italic';
     }
     if (rawFont.underline) {
-      font.textDecoration = "underline";
+      font.textDecoration = 'underline';
     }
     if (rawFont.lines) {
       font.WebkitLineClamp = `${rawFont.lines}`;
     }
     if (font.lineHeight) {
-      font.lineHeight = font.lineHeight >= 12 ? `${parseInt(font.lineHeight, 10)}px` : parseInt(font.lineHeight, 10);
+      font.lineHeight =
+        font.lineHeight >= 12
+          ? `${parseInt(font.lineHeight, 10)}px`
+          : parseInt(font.lineHeight, 10);
     }
     font.fontSize = toRpx(+rawFont.fontSize);
     font.letterSpacing = toRpx(+rawFont.letterSpacing);
     return font;
   }
   function getBoxStyle(box = {}) {
-    const newBox = pick_1(cloneDeep_1(box) || {}, "borderLeftStyle", "borderRightStyle", "borderTopStyle", "borderBottomStyle", "borderLeftColor", "borderRightColor", "borderTopColor", "borderBottomColor");
+    const newBox = pick_1(
+      cloneDeep_1(box) || {},
+      'borderLeftStyle',
+      'borderRightStyle',
+      'borderTopStyle',
+      'borderBottomStyle',
+      'borderLeftColor',
+      'borderRightColor',
+      'borderTopColor',
+      'borderBottomColor',
+    );
     if (+box.borderTopWidth > 0) {
       newBox.borderTopWidth = toRpx(+box.borderTopWidth);
       newBox.borderTopColor = parseThemeColor(box.borderTopColor);
@@ -1507,11 +2057,11 @@ var __publicField = (obj, key, value) => {
     if (style.display) {
       result.display = style.display;
     }
-    if (result.display === "flex") {
+    if (result.display === 'flex') {
       let flexSetting = style.flexSetting || {};
-      result.flexDirection = flexSetting.direction || "row";
-      result.alignItems = flexSetting.align || "stretch";
-      result.justifyContent = flexSetting.justify || "flex-start";
+      result.flexDirection = flexSetting.direction || 'row';
+      result.alignItems = flexSetting.align || 'stretch';
+      result.justifyContent = flexSetting.justify || 'flex-start';
     }
     if (((_a2 = style.flexSetting) == null ? void 0 : _a2.flexShrink) >= 0) {
       result.flexShrink = +style.flexSetting.flexShrink;
@@ -1522,31 +2072,32 @@ var __publicField = (obj, key, value) => {
     return result;
   }
   function toWHset(style, label) {
-    const unit = style[label + "Unit"] || "px";
-    if (unit === "auto" || style[label] <= 0) {
-      return "auto";
-    } else if (unit === "px") {
+    const unit = style[label + 'Unit'] || 'px';
+    if (unit === 'auto' || style[label] <= 0) {
+      return 'auto';
+    } else if (unit === 'px') {
       return toRpx(+style[label]);
     }
     return style[label] + unit;
   }
   function getBoxPosition(component) {
-    let { style = {}, isFlow } = (component == null ? void 0 : component.componentProperties) || {};
-    let pos = (style.justification || "top left").split(" ");
+    let { style = {}, isFlow } =
+      (component == null ? void 0 : component.componentProperties) || {};
+    let pos = (style.justification || 'top left').split(' ');
     let result = {};
     if (isFlow) {
-      result.height = toWHset(style, "height");
-      result.width = toWHset(style, "width");
-      result.maxWidth = "100%";
+      result.height = toWHset(style, 'height');
+      result.width = toWHset(style, 'width');
+      result.maxWidth = '100%';
       if (result.width > 0) {
         result.flexShrink = 0;
       }
     } else {
-      result[pos[1]] = +style.x + "px";
-      result[pos[0]] = +style.y + "px";
-      result.height = toWHset(style, "height") || "auto";
-      result.width = toWHset(style, "width") || "100%";
-      result.position = style.position || "absolute";
+      result[pos[1]] = +style.x + 'px';
+      result[pos[0]] = +style.y + 'px';
+      result.height = toWHset(style, 'height') || 'auto';
+      result.width = toWHset(style, 'width') || '100%';
+      result.position = style.position || 'absolute';
     }
     if (style.opacity >= 0) {
       result.opacity = +style.opacity / 100;
@@ -1558,14 +2109,22 @@ var __publicField = (obj, key, value) => {
   }
   function getBoxShadow(config = {}) {
     const { angle = 0, x, y, blur, size, color, distance } = config;
-    const shadowX = typeof x !== "undefined" ? x : Math.round(Math.sin(angle * (Math.PI / 180)) * distance);
-    const shadowY = typeof y !== "undefined" ? y : -Math.round(Math.cos(angle * (Math.PI / 180)) * distance);
+    const shadowX =
+      typeof x !== 'undefined'
+        ? x
+        : Math.round(Math.sin(angle * (Math.PI / 180)) * distance);
+    const shadowY =
+      typeof y !== 'undefined'
+        ? y
+        : -Math.round(Math.cos(angle * (Math.PI / 180)) * distance);
     if (!x && !y && !blur && !size && !distance) {
       return {};
     }
     if (isNumber_1(shadowX) && isNumber_1(shadowY)) {
       return {
-        boxShadow: `${toRpx(shadowX)} ${toRpx(shadowY)} ${toRpx(blur || 0)} ${toRpx(size || 0)} ${parseThemeColor(color)}`
+        boxShadow: `${toRpx(shadowX)} ${toRpx(shadowY)} ${toRpx(
+          blur || 0,
+        )} ${toRpx(size || 0)} ${parseThemeColor(color)}`,
       };
     }
     return {};
@@ -1577,81 +2136,100 @@ var __publicField = (obj, key, value) => {
     let result = {};
     Object.keys(style).forEach((key) => {
       switch (key) {
-        case "box":
+        case 'box':
           result = Object.assign(result, getBoxStyle(style.box));
           break;
-        case "background":
+        case 'background':
           result = Object.assign(result, getBackgroundStyle(style.background));
           break;
-        case "font":
+        case 'font':
           result = Object.assign(result, getFontStyle(style.font));
           break;
-        case "lineHeight":
-          result.lineHeight = style[key] >= 12 ? `${parseInt(style[key], 10)}px` : parseInt(style[key], 10);
+        case 'lineHeight':
+          result.lineHeight =
+            style[key] >= 12
+              ? `${parseInt(style[key], 10)}px`
+              : parseInt(style[key], 10);
           break;
-        case "boxShadow":
+        case 'boxShadow':
           result = Object.assign(result, getBoxShadow(style.boxShadow));
           break;
-        case "opacity":
+        case 'opacity':
           result.opacity = +style[key] / 100;
           break;
-        case "width":
-          result.width = style.autoWidth ? "auto" : toWHset(style, "width");
+        case 'width':
+          result.width = style.autoWidth ? 'auto' : toWHset(style, 'width');
           break;
-        case "flexSetting":
+        case 'flexSetting':
           result = Object.assign(result, getFlexStyle(style));
           break;
-        case "height":
-          result.height = toWHset(style, "height");
+        case 'height':
+          result.height = toWHset(style, 'height');
           break;
         default:
-          let val = isNumberFormat(style[key]) ? `${+style[key]}px` : style[key];
+          let val = isNumberFormat(style[key])
+            ? `${+style[key]}px`
+            : style[key];
           if (isObject(style[key])) {
-            result = Object.assign(result, { [key]: transformStyle(style[key]) });
-          } else if (![
-            "x",
-            "y",
-            "css",
-            "lineClamp",
-            "columns",
-            "flex",
-            "scrollX"
-          ].includes(key) && isValidCSS(camelToKebab(key), val)) {
-            result[key] = isNumberFormat(style[key]) ? `${+style[key]}px` : style[key];
+            result = Object.assign(result, {
+              [key]: transformStyle(style[key]),
+            });
+          } else if (
+            ![
+              'x',
+              'y',
+              'css',
+              'lineClamp',
+              'columns',
+              'flex',
+              'scrollX',
+            ].includes(key) &&
+            isValidCSS(camelToKebab(key), val)
+          ) {
+            result[key] = isNumberFormat(style[key])
+              ? `${+style[key]}px`
+              : style[key];
           }
           break;
       }
     });
     return result;
   }
-  (_a = window.matchMedia) == null ? void 0 : _a.call(window, "(max-width: 768px)").matches;
+  (_a = window.matchMedia) == null
+    ? void 0
+    : _a.call(window, '(max-width: 768px)').matches;
   function createVue3Component(vueObj) {
-    if (!vueObj || typeof vueObj !== "function" && typeof vueObj !== "object") {
+    if (
+      !vueObj ||
+      (typeof vueObj !== 'function' && typeof vueObj !== 'object')
+    ) {
       return;
     }
-    class VueFactory extends React__default["default"].Component {
+    class VueFactory extends React__default['default'].Component {
       constructor(props) {
         super(props);
-        __publicField(this, "domRef");
-        __publicField(this, "app");
-        __publicField(this, "vm");
-        __publicField(this, "isUnmount");
-        this.domRef = React__default["default"].createRef();
+        __publicField(this, 'domRef');
+        __publicField(this, 'app');
+        __publicField(this, 'vm');
+        __publicField(this, 'isUnmount');
+        this.domRef = React__default['default'].createRef();
         this.resolveAmisProps = this.resolveAmisProps.bind(this);
       }
       componentDidMount() {
         const { amisData, amisFunc } = this.resolveAmisProps();
-        const { data, ...rest } = vueObj = typeof vueObj === "function" ? new vueObj() : vueObj;
+        const { data, ...rest } = (vueObj =
+          typeof vueObj === 'function' ? new vueObj() : vueObj);
         this.app = vue.createApp({
-          data: () => extendObject(amisData, typeof data === "function" ? data() : data),
+          data: () =>
+            extendObject(amisData, typeof data === 'function' ? data() : data),
           ...rest,
-          props: rest.props || {}
+          props: rest.props || {},
         });
         Object.keys(amisFunc).forEach((key) => {
           this.app.$props[key] = amisFunc[key];
         });
         this.vm = this.app.mount(this.domRef.current);
-        this.domRef.current.setAttribute("data-component-id", this.props.id);
+        this.domRef.current.setAttribute('data-component-id', this.props.id);
       }
       componentDidUpdate() {
         if (!this.isUnmount) {
@@ -1672,7 +2250,7 @@ var __publicField = (obj, key, value) => {
         let amisData = {};
         Object.keys(this.props).forEach((key) => {
           const value = this.props[key];
-          if (typeof value === "function") {
+          if (typeof value === 'function') {
             amisFunc[key] = value;
           } else {
             if (vue.isProxy(value)) {
@@ -1688,12 +2266,18 @@ var __publicField = (obj, key, value) => {
       }
       render() {
         const { componentProperties, node } = this.props;
-        const style = componentProperties && componentProperties.style ? componentProperties.style : {};
+        const style =
+          componentProperties && componentProperties.style
+            ? componentProperties.style
+            : {};
         const curStyle = {
           ...getBoxPosition(node || this.props),
-          ...transformStyle(style)
+          ...transformStyle(style),
         };
-        return React__default["default"].createElement("div", { ref: this.domRef, style: curStyle });
+        return React__default['default'].createElement('div', {
+          ref: this.domRef,
+          style: curStyle,
+        });
       }
     }
     return VueFactory;
@@ -1703,38 +2287,50 @@ var __publicField = (obj, key, value) => {
       return;
     }
     const curRendererOption = {
-      type: "",
-      framework: Framework.react
+      type: '',
+      framework: Framework.react,
     };
     if (rendererOption && isString$1(rendererOption)) {
       Object.assign(curRendererOption, {
-        type: rendererOption
+        type: rendererOption,
       });
     } else {
       Object.assign(curRendererOption, rendererOption);
     }
     if (curRendererOption && !curRendererOption.type) {
-      console.error(`${consoleTag}\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u6CE8\u518C\u5931\u8D25\uFF0C\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u7C7B\u578B\uFF08type\uFF09\u4E0D\u80FD\u4E3A\u7A7A\u3002`);
+      console.error(
+        `${consoleTag}\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u6CE8\u518C\u5931\u8D25\uFF0C\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u7C7B\u578B\uFF08type\uFF09\u4E0D\u80FD\u4E3A\u7A7A\u3002`,
+      );
     } else {
       curRendererOption.framework = getFramework(curRendererOption.framework);
       const resolverMap = {
         react: (i) => i,
-        vue3: createVue3Component
+        vue3: createVue3Component,
       };
-      const curRendererComponent = resolverMap[curRendererOption.framework](newRenderer);
+      const curRendererComponent =
+        resolverMap[curRendererOption.framework](newRenderer);
       if (window) {
-        const newComponentId = AddCustomRenderer(curRendererOption.type, curRendererComponent);
+        const newComponentId = AddCustomRenderer(
+          curRendererOption.type,
+          curRendererComponent,
+        );
         if (newComponentId) {
-          console.info(`${consoleTag}\u89E6\u53D1\u6CE8\u518C\u81EA\u5B9A\u4E49\u6E32\u67D3\u5668(${curRendererOption.type})\u4E8B\u4EF6:`, {
-            type: curRendererOption.type,
-            component: curRendererComponent,
-            framework: curRendererOption.framework
-          });
-          window.postMessage({
-            type: "aipage-editor-register-renderer-event",
-            eventMsg: `${consoleTag}\u6CE8\u518C\u4E00\u4E2A\u81EA\u5B9A\u4E49aipage-editor\u6E32\u67D3\u5668`,
-            customComponentId: newComponentId
-          }, "*");
+          console.info(
+            `${consoleTag}\u89E6\u53D1\u6CE8\u518C\u81EA\u5B9A\u4E49\u6E32\u67D3\u5668(${curRendererOption.type})\u4E8B\u4EF6:`,
+            {
+              type: curRendererOption.type,
+              component: curRendererComponent,
+              framework: curRendererOption.framework,
+            },
+          );
+          window.postMessage(
+            {
+              type: 'aipage-editor-register-renderer-event',
+              eventMsg: `${consoleTag}\u6CE8\u518C\u4E00\u4E2A\u81EA\u5B9A\u4E49aipage-editor\u6E32\u67D3\u5668`,
+              customComponentId: newComponentId,
+            },
+            '*',
+          );
         }
       }
     }
@@ -1748,32 +2344,34 @@ var __publicField = (obj, key, value) => {
       window.AIPageEditorCustomRenderers[componentId] = component;
       return componentId;
     } else {
-      console.error(`${consoleTag}\u6CE8\u518C\u81EA\u5B9A\u4E49\u6E32\u67D3\u5668\u5931\u8D25\uFF0C\u5DF2\u5B58\u5728\u540C\u540D\u6E32\u67D3\u5668\u7C7B\u578B(${type})\u3002`);
+      console.error(
+        `${consoleTag}\u6CE8\u518C\u81EA\u5B9A\u4E49\u6E32\u67D3\u5668\u5931\u8D25\uFF0C\u5DF2\u5B58\u5728\u540C\u540D\u6E32\u67D3\u5668\u7C7B\u578B(${type})\u3002`,
+      );
     }
     return null;
   }
-  var image = "";
-  var resizeSensor = "";
-  var toast = "";
+  var image = '';
+  var resizeSensor = '';
+  var toast = '';
   const extend = Object.assign;
   const hasOwnProperty = Object.prototype.hasOwnProperty;
   const hasOwn = (val, key) => hasOwnProperty.call(val, key);
-  const isFunction = (val) => typeof val === "function";
-  const isString = (val) => typeof val === "string";
+  const isFunction = (val) => typeof val === 'function';
+  const isString = (val) => typeof val === 'string';
   const objectToString = Object.prototype.toString;
   const toTypeString = (value) => objectToString.call(value);
-  const isPlainObject = (val) => toTypeString(val) === "[object Object]";
-  const LINEFEED = "\n";
+  const isPlainObject = (val) => toTypeString(val) === '[object Object]';
+  const LINEFEED = '\n';
   const SCHEME_RE = /^([a-z-]+:)?\/\//i;
   const DATA_RE = /^data:.*,.*/;
-  function getLen(str = "") {
-    return ("" + str).replace(/[^\x00-\xff]/g, "**").length;
+  function getLen(str = '') {
+    return ('' + str).replace(/[^\x00-\xff]/g, '**').length;
   }
   function hasLeadingSlash(str) {
-    return str.indexOf("/") === 0;
+    return str.indexOf('/') === 0;
   }
   function addLeadingSlash(str) {
-    return hasLeadingSlash(str) ? str : "/" + str;
+    return hasLeadingSlash(str) ? str : '/' + str;
   }
   function removeLeadingSlash(str) {
     return hasLeadingSlash(str) ? str.slice(1) : str;
@@ -1790,30 +2388,32 @@ var __publicField = (obj, key, value) => {
       id,
       dataset: getCustomDataset(el),
       offsetTop,
-      offsetLeft
+      offsetLeft,
     };
   }
   /*!
-    * vue-router v4.1.6
-    * (c) 2022 Eduardo San Martin Morote
-    * @license MIT
-    */
+   * vue-router v4.1.6
+   * (c) 2022 Eduardo San Martin Morote
+   * @license MIT
+   */
   var NavigationType;
-  (function(NavigationType2) {
-    NavigationType2["pop"] = "pop";
-    NavigationType2["push"] = "push";
+  (function (NavigationType2) {
+    NavigationType2['pop'] = 'pop';
+    NavigationType2['push'] = 'push';
   })(NavigationType || (NavigationType = {}));
   var NavigationDirection;
-  (function(NavigationDirection2) {
-    NavigationDirection2["back"] = "back";
-    NavigationDirection2["forward"] = "forward";
-    NavigationDirection2["unknown"] = "";
+  (function (NavigationDirection2) {
+    NavigationDirection2['back'] = 'back';
+    NavigationDirection2['forward'] = 'forward';
+    NavigationDirection2['unknown'] = '';
   })(NavigationDirection || (NavigationDirection = {}));
   var NavigationFailureType;
-  (function(NavigationFailureType2) {
-    NavigationFailureType2[NavigationFailureType2["aborted"] = 4] = "aborted";
-    NavigationFailureType2[NavigationFailureType2["cancelled"] = 8] = "cancelled";
-    NavigationFailureType2[NavigationFailureType2["duplicated"] = 16] = "duplicated";
+  (function (NavigationFailureType2) {
+    NavigationFailureType2[(NavigationFailureType2['aborted'] = 4)] = 'aborted';
+    NavigationFailureType2[(NavigationFailureType2['cancelled'] = 8)] =
+      'cancelled';
+    NavigationFailureType2[(NavigationFailureType2['duplicated'] = 16)] =
+      'duplicated';
   })(NavigationFailureType || (NavigationFailureType = {}));
   function PolySymbol(name) {
     return Symbol(name);
@@ -1831,7 +2431,7 @@ var __publicField = (obj, key, value) => {
       return page.$page.meta;
     }
   }
-  const PAGE_META_KEYS = ["navigationBar", "pullToRefresh"];
+  const PAGE_META_KEYS = ['navigationBar', 'pullToRefresh'];
   function initGlobalStyle() {
     return JSON.parse(JSON.stringify(__uniConfig.globalStyle || {}));
   }
@@ -1842,26 +2442,27 @@ var __publicField = (obj, key, value) => {
       res[name] = extend({}, globalStyle[name], pageMeta[name]);
     });
     const { navigationBar } = res;
-    navigationBar.titleText && navigationBar.titleImage && (navigationBar.titleText = "");
+    navigationBar.titleText &&
+      navigationBar.titleImage &&
+      (navigationBar.titleText = '');
     return res;
   }
   function getRealRoute(fromRoute, toRoute) {
-    if (toRoute.indexOf("/") === 0) {
+    if (toRoute.indexOf('/') === 0) {
       return toRoute;
     }
-    if (toRoute.indexOf("./") === 0) {
+    if (toRoute.indexOf('./') === 0) {
       return getRealRoute(fromRoute, toRoute.slice(2));
     }
-    const toRouteArray = toRoute.split("/");
+    const toRouteArray = toRoute.split('/');
     const toRouteLength = toRouteArray.length;
     let i = 0;
-    for (; i < toRouteLength && toRouteArray[i] === ".."; i++) {
-    }
+    for (; i < toRouteLength && toRouteArray[i] === '..'; i++) {}
     toRouteArray.splice(0, i);
-    toRoute = toRouteArray.join("/");
-    const fromRouteArray = fromRoute.length > 0 ? fromRoute.split("/") : [];
+    toRoute = toRouteArray.join('/');
+    const fromRouteArray = fromRoute.length > 0 ? fromRoute.split('/') : [];
     fromRouteArray.splice(fromRouteArray.length - i - 1, i + 1);
-    return addLeadingSlash(fromRouteArray.concat(toRouteArray).join("/"));
+    return addLeadingSlash(fromRouteArray.concat(toRouteArray).join('/'));
   }
   function converPx(value) {
     if (/^-?\d+[ur]px$/i.test(value)) {
@@ -1871,40 +2472,42 @@ var __publicField = (obj, key, value) => {
     } else if (/^-?[\d\.]+$/.test(value)) {
       return `${value}px`;
     }
-    return value || "";
+    return value || '';
   }
   function converType(type) {
-    return type.replace(/[A-Z]/g, (text2) => {
-      return `-${text2.toLowerCase()}`;
-    }).replace("webkit", "-webkit");
+    return type
+      .replace(/[A-Z]/g, (text2) => {
+        return `-${text2.toLowerCase()}`;
+      })
+      .replace('webkit', '-webkit');
   }
   function getStyle(action) {
     const animateTypes1 = [
-      "matrix",
-      "matrix3d",
-      "scale",
-      "scale3d",
-      "rotate3d",
-      "skew",
-      "translate",
-      "translate3d"
+      'matrix',
+      'matrix3d',
+      'scale',
+      'scale3d',
+      'rotate3d',
+      'skew',
+      'translate',
+      'translate3d',
     ];
     const animateTypes2 = [
-      "scaleX",
-      "scaleY",
-      "scaleZ",
-      "rotate",
-      "rotateX",
-      "rotateY",
-      "rotateZ",
-      "skewX",
-      "skewY",
-      "translateX",
-      "translateY",
-      "translateZ"
+      'scaleX',
+      'scaleY',
+      'scaleZ',
+      'rotate',
+      'rotateX',
+      'rotateY',
+      'rotateZ',
+      'skewX',
+      'skewY',
+      'translateX',
+      'translateY',
+      'translateZ',
     ];
-    const animateTypes3 = ["opacity", "background-color"];
-    const animateTypes4 = ["width", "height", "left", "right", "top", "bottom"];
+    const animateTypes3 = ['opacity', 'background-color'];
+    const animateTypes4 = ['width', 'height', 'left', 'right', 'top', 'bottom'];
     const animates = action.animates;
     const option = action.option;
     const transition = option.transition;
@@ -1914,24 +2517,32 @@ var __publicField = (obj, key, value) => {
       let type = animate.type;
       let args = [...animate.args];
       if (animateTypes1.concat(animateTypes2).includes(type)) {
-        if (type.startsWith("rotate") || type.startsWith("skew")) {
-          args = args.map((value) => parseFloat(value) + "deg");
-        } else if (type.startsWith("translate")) {
+        if (type.startsWith('rotate') || type.startsWith('skew')) {
+          args = args.map((value) => parseFloat(value) + 'deg');
+        } else if (type.startsWith('translate')) {
           args = args.map(converPx);
         }
         if (animateTypes2.indexOf(type) >= 0) {
           args.length = 1;
         }
-        transform.push(`${type}(${args.join(",")})`);
+        transform.push(`${type}(${args.join(',')})`);
       } else if (animateTypes3.concat(animateTypes4).includes(args[0])) {
         type = args[0];
         const value = args[1];
         style[type] = animateTypes4.includes(type) ? converPx(value) : value;
       }
     });
-    style.transform = style.webkitTransform = transform.join(" ");
-    style.transition = style.webkitTransition = Object.keys(style).map((type) => `${converType(type)} ${transition.duration}ms ${transition.timingFunction} ${transition.delay}ms`).join(",");
-    style.transformOrigin = style.webkitTransformOrigin = option.transformOrigin;
+    style.transform = style.webkitTransform = transform.join(' ');
+    style.transition = style.webkitTransition = Object.keys(style)
+      .map(
+        (type) =>
+          `${converType(type)} ${transition.duration}ms ${
+            transition.timingFunction
+          } ${transition.delay}ms`,
+      )
+      .join(',');
+    style.transformOrigin = style.webkitTransformOrigin =
+      option.transformOrigin;
     return style;
   }
   function startAnimation(context) {
@@ -1959,18 +2570,18 @@ var __publicField = (obj, key, value) => {
     }, 0);
   }
   var animation = {
-    props: ["animation"],
+    props: ['animation'],
     watch: {
       animation: {
         deep: true,
         handler() {
           startAnimation(this);
-        }
-      }
+        },
+      },
     },
     mounted() {
       startAnimation(this);
-    }
+    },
   };
   const defineBuiltInComponent = (options) => {
     options.__reserved = true;
@@ -1983,27 +2594,27 @@ var __publicField = (obj, key, value) => {
   const defineSystemComponent = (options) => {
     options.__reserved = true;
     options.compatConfig = {
-      MODE: 3
+      MODE: 3,
     };
     return vue.defineComponent(options);
   };
   const hoverProps = {
     hoverClass: {
       type: String,
-      default: "none"
+      default: 'none',
     },
     hoverStopPropagation: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hoverStartTime: {
       type: [Number, String],
-      default: 50
+      default: 50,
     },
     hoverStayTime: {
       type: [Number, String],
-      default: 400
-    }
+      default: 400,
+    },
   };
   function useHover(props2) {
     const hovering = vue.ref(false);
@@ -2022,7 +2633,11 @@ var __publicField = (obj, key, value) => {
       if (evt._hoverPropagationStopped) {
         return;
       }
-      if (!props2.hoverClass || props2.hoverClass === "none" || props2.disabled) {
+      if (
+        !props2.hoverClass ||
+        props2.hoverClass === 'none' ||
+        props2.disabled
+      ) {
         return;
       }
       if (evt.touches.length > 1) {
@@ -2055,8 +2670,8 @@ var __publicField = (obj, key, value) => {
       binding: {
         onTouchstartPassive,
         onTouchend,
-        onTouchcancel
-      }
+        onTouchcancel,
+      },
     };
   }
   function useCustomEvent(ref2, emit2) {
@@ -2073,10 +2688,10 @@ var __publicField = (obj, key, value) => {
       timeStamp: domEvt.timeStamp || 0,
       target,
       currentTarget: target,
-      detail
+      detail,
     };
   }
-  const baseUrl = "/";
+  const baseUrl = '/';
   function addBase(filePath) {
     if (addLeadingSlash(filePath).indexOf(baseUrl) === 0) {
       return addLeadingSlash(filePath);
@@ -2085,53 +2700,77 @@ var __publicField = (obj, key, value) => {
   }
   function getRealPath(filePath) {
     const { base, assets } = __uniConfig.router;
-    if (base === "./") {
-      if (filePath.indexOf("./static/") === 0 || assets && filePath.indexOf("./" + assets + "/") === 0) {
+    if (base === './') {
+      if (
+        filePath.indexOf('./static/') === 0 ||
+        (assets && filePath.indexOf('./' + assets + '/') === 0)
+      ) {
         filePath = filePath.slice(1);
       }
     }
-    if (filePath.indexOf("/") === 0) {
-      if (filePath.indexOf("//") === 0) {
-        filePath = "https:" + filePath;
+    if (filePath.indexOf('/') === 0) {
+      if (filePath.indexOf('//') === 0) {
+        filePath = 'https:' + filePath;
       } else {
         return addBase(filePath.slice(1));
       }
     }
-    if (SCHEME_RE.test(filePath) || DATA_RE.test(filePath) || filePath.indexOf("blob:") === 0) {
+    if (
+      SCHEME_RE.test(filePath) ||
+      DATA_RE.test(filePath) ||
+      filePath.indexOf('blob:') === 0
+    ) {
       return filePath;
     }
     const pages = getCurrentPages$1();
     if (pages.length) {
-      return addBase(getRealRoute(pages[pages.length - 1].$page.route, filePath).slice(1));
+      return addBase(
+        getRealRoute(pages[pages.length - 1].$page.route, filePath).slice(1),
+      );
     }
     return filePath;
   }
   const ua = navigator.userAgent;
   const isIOS$1 = /* @__PURE__ */ /iphone|ipad|ipod/i.test(ua);
   function getScreenFix() {
-    return /^Apple/.test(navigator.vendor) && typeof window.orientation === "number";
+    return (
+      /^Apple/.test(navigator.vendor) && typeof window.orientation === 'number'
+    );
   }
   function isLandscape(screenFix) {
     return screenFix && Math.abs(window.orientation) === 90;
   }
   function getScreenWidth(screenFix, landscape) {
-    return screenFix ? Math[landscape ? "max" : "min"](screen.width, screen.height) : screen.width;
+    return screenFix
+      ? Math[landscape ? 'max' : 'min'](screen.width, screen.height)
+      : screen.width;
   }
   function getWindowWidth(screenWidth) {
-    return Math.min(window.innerWidth, document.documentElement.clientWidth, screenWidth) || screenWidth;
+    return (
+      Math.min(
+        window.innerWidth,
+        document.documentElement.clientWidth,
+        screenWidth,
+      ) || screenWidth
+    );
   }
   function getBaseSystemInfo() {
     const screenFix = getScreenFix();
-    const windowWidth = getWindowWidth(getScreenWidth(screenFix, isLandscape(screenFix)));
+    const windowWidth = getWindowWidth(
+      getScreenWidth(screenFix, isLandscape(screenFix)),
+    );
     return {
-      platform: isIOS$1 ? "ios" : "other",
+      platform: isIOS$1 ? 'ios' : 'other',
       pixelRatio: window.devicePixelRatio,
-      windowWidth
+      windowWidth,
     };
   }
   function formatApiArgs(args, options) {
     const params = args[0];
-    if (!options || !isPlainObject(options.formatArgs) && isPlainObject(params)) {
+    if (
+      !options ||
+      (!isPlainObject(options.formatArgs) && isPlainObject(params))
+    ) {
       return;
     }
     const formatArgs = options.formatArgs;
@@ -2175,7 +2814,7 @@ var __publicField = (obj, key, value) => {
   function defineSyncApi(name, fn, protocol, options) {
     return wrapperSyncApi(name, fn, void 0, options);
   }
-  const API_UPX2PX = "upx2px";
+  const API_UPX2PX = 'upx2px';
   const EPS = 1e-4;
   const BASE_DEVICE_WIDTH = 750;
   let isIOS = false;
@@ -2184,10 +2823,14 @@ var __publicField = (obj, key, value) => {
   let maxWidth = 960;
   let baseWidth = 375;
   function checkDeviceWidth() {
-    const { platform, pixelRatio: pixelRatio2, windowWidth } = getBaseSystemInfo();
+    const {
+      platform,
+      pixelRatio: pixelRatio2,
+      windowWidth,
+    } = getBaseSystemInfo();
     deviceWidth = windowWidth;
     deviceDPR = pixelRatio2;
-    isIOS = platform === "ios";
+    isIOS = platform === 'ios';
   }
   function checkValue(value, defaultValue) {
     const newValue = Number(value);
@@ -2198,70 +2841,76 @@ var __publicField = (obj, key, value) => {
     maxWidth = checkValue(config.rpxCalcMaxDeviceWidth, 960);
     baseWidth = checkValue(config.rpxCalcBaseDeviceWidth, 375);
   }
-  const upx2px = /* @__PURE__ */ defineSyncApi(API_UPX2PX, (number, newDeviceWidth) => {
-    if (deviceWidth === 0) {
-      checkDeviceWidth();
+  const upx2px = /* @__PURE__ */ defineSyncApi(
+    API_UPX2PX,
+    (number, newDeviceWidth) => {
+      if (deviceWidth === 0) {
+        checkDeviceWidth();
+        {
+          checkMaxWidth();
+        }
+      }
+      number = Number(number);
+      if (number === 0) {
+        return 0;
+      }
+      let width = newDeviceWidth || deviceWidth;
       {
-        checkMaxWidth();
+        width = width <= maxWidth ? width : baseWidth;
       }
-    }
-    number = Number(number);
-    if (number === 0) {
-      return 0;
-    }
-    let width = newDeviceWidth || deviceWidth;
-    {
-      width = width <= maxWidth ? width : baseWidth;
-    }
-    let result = number / BASE_DEVICE_WIDTH * width;
-    if (result < 0) {
-      result = -result;
-    }
-    result = Math.floor(result + EPS);
-    if (result === 0) {
-      if (deviceDPR === 1 || !isIOS) {
-        result = 1;
-      } else {
-        result = 0.5;
+      let result = (number / BASE_DEVICE_WIDTH) * width;
+      if (result < 0) {
+        result = -result;
       }
-    }
-    return number < 0 ? -result : result;
-  });
+      result = Math.floor(result + EPS);
+      if (result === 0) {
+        if (deviceDPR === 1 || !isIOS) {
+          result = 1;
+        } else {
+          result = 0.5;
+        }
+      }
+      return number < 0 ? -result : result;
+    },
+  );
   const validator = [
     {
-      name: "id",
+      name: 'id',
       type: String,
-      required: true
-    }
+      required: true,
+    },
   ];
   validator.concat({
-    name: "componentInstance",
-    type: Object
+    name: 'componentInstance',
+    type: Object,
   });
   const IndexOptions = {
     beforeInvoke() {
       const pageMeta = getCurrentPageMeta();
       if (pageMeta && !pageMeta.isTabBar) {
-        return "not TabBar page";
+        return 'not TabBar page';
       }
     },
     formatArgs: {
       index(value) {
         if (!__uniConfig.tabBar.list[value]) {
-          return "tabbar item not found";
+          return 'tabbar item not found';
         }
-      }
-    }
+      },
+    },
   };
   ({
     beforeInvoke: IndexOptions.beforeInvoke,
-    formatArgs: /* @__PURE__ */ extend({
-      pagePath(value, params) {
-        if (value) {
-          params.pagePath = removeLeadingSlash(value);
-        }
-      }
-    }, IndexOptions.formatArgs)
+    formatArgs: /* @__PURE__ */ extend(
+      {
+        pagePath(value, params) {
+          if (value) {
+            params.pagePath = removeLeadingSlash(value);
+          }
+        },
+      },
+      IndexOptions.formatArgs,
+    ),
   });
   const GRADIENT_RE = /^(linear|radial)-gradient\(.+?\);?$/;
   ({
@@ -2274,53 +2923,79 @@ var __publicField = (obj, key, value) => {
       },
       borderStyle(value, params) {
         if (value) {
-          params.borderStyle = value === "white" ? "white" : "black";
+          params.borderStyle = value === 'white' ? 'white' : 'black';
         }
-      }
-    }
+      },
+    },
   });
   ({
     beforeInvoke: IndexOptions.beforeInvoke,
-    formatArgs: /* @__PURE__ */ extend({
-      text(value, params) {
-        if (getLen(value) >= 4) {
-          params.text = "...";
-        }
-      }
-    }, IndexOptions.formatArgs)
+    formatArgs: /* @__PURE__ */ extend(
+      {
+        text(value, params) {
+          if (getLen(value) >= 4) {
+            params.text = '...';
+          }
+        },
+      },
+      IndexOptions.formatArgs,
+    ),
   });
   var ResizeSensor = /* @__PURE__ */ defineBuiltInComponent({
-    name: "ResizeSensor",
+    name: 'ResizeSensor',
     props: {
       initial: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
-    emits: ["resize"],
-    setup(props2, {
-      emit: emit2
-    }) {
+    emits: ['resize'],
+    setup(props2, { emit: emit2 }) {
       const rootRef = vue.ref(null);
       const reset = useResizeSensorReset(rootRef);
       const update = useResizeSensorUpdate(rootRef, emit2, reset);
       useResizeSensorLifecycle(rootRef, props2, update, reset);
-      return () => vue.createVNode("uni-resize-sensor", {
-        "ref": rootRef,
-        "onAnimationstartOnce": update
-      }, [vue.createVNode("div", {
-        "onScroll": update
-      }, [vue.createVNode("div", null, null)], 40, ["onScroll"]), vue.createVNode("div", {
-        "onScroll": update
-      }, [vue.createVNode("div", null, null)], 40, ["onScroll"])], 40, ["onAnimationstartOnce"]);
-    }
+      return () =>
+        vue.createVNode(
+          'uni-resize-sensor',
+          {
+            ref: rootRef,
+            onAnimationstartOnce: update,
+          },
+          [
+            vue.createVNode(
+              'div',
+              {
+                onScroll: update,
+              },
+              [vue.createVNode('div', null, null)],
+              40,
+              ['onScroll'],
+            ),
+            vue.createVNode(
+              'div',
+              {
+                onScroll: update,
+              },
+              [vue.createVNode('div', null, null)],
+              40,
+              ['onScroll'],
+            ),
+          ],
+          40,
+          ['onAnimationstartOnce'],
+        );
+    },
   });
   function useResizeSensorUpdate(rootRef, emit2, reset) {
     const size = vue.reactive({
       width: -1,
-      height: -1
+      height: -1,
     });
-    vue.watch(() => extend({}, size), (value) => emit2("resize", value));
+    vue.watch(
+      () => extend({}, size),
+      (value) => emit2('resize', value),
+    );
     return () => {
       const rootEl = rootRef.value;
       size.width = rootEl.offsetWidth;
@@ -2330,10 +3005,7 @@ var __publicField = (obj, key, value) => {
   }
   function useResizeSensorReset(rootRef) {
     return () => {
-      const {
-        firstElementChild,
-        lastElementChild
-      } = rootRef.value;
+      const { firstElementChild, lastElementChild } = rootRef.value;
       firstElementChild.scrollLeft = 1e5;
       firstElementChild.scrollTop = 1e5;
       lastElementChild.scrollLeft = 1e5;
@@ -2348,9 +3020,9 @@ var __publicField = (obj, key, value) => {
       }
       const rootEl = rootRef.value;
       if (rootEl.offsetParent !== rootEl.parentElement) {
-        rootEl.parentElement.style.position = "relative";
+        rootEl.parentElement.style.position = 'relative';
       }
-      if (!("AnimationEvent" in window)) {
+      if (!('AnimationEvent' in window)) {
         reset();
       }
     });
@@ -2358,105 +3030,127 @@ var __publicField = (obj, key, value) => {
   const props$s = {
     src: {
       type: String,
-      default: ""
+      default: '',
     },
     mode: {
       type: String,
-      default: "scaleToFill"
+      default: 'scaleToFill',
     },
     lazyLoad: {
       type: [Boolean, String],
-      default: false
+      default: false,
     },
     draggable: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   };
   const FIX_MODES = {
-    widthFix: ["offsetWidth", "height", (value, ratio) => value / ratio],
-    heightFix: ["offsetHeight", "width", (value, ratio) => value * ratio]
+    widthFix: ['offsetWidth', 'height', (value, ratio) => value / ratio],
+    heightFix: ['offsetHeight', 'width', (value, ratio) => value * ratio],
   };
   const IMAGE_MODES = {
-    aspectFit: ["center center", "contain"],
-    aspectFill: ["center center", "cover"],
-    widthFix: [, "100% 100%"],
-    heightFix: [, "100% 100%"],
-    top: ["center top"],
-    bottom: ["center bottom"],
-    center: ["center center"],
-    left: ["left center"],
-    right: ["right center"],
-    "top left": ["left top"],
-    "top right": ["right top"],
-    "bottom left": ["left bottom"],
-    "bottom right": ["right bottom"]
+    aspectFit: ['center center', 'contain'],
+    aspectFill: ['center center', 'cover'],
+    widthFix: [, '100% 100%'],
+    heightFix: [, '100% 100%'],
+    top: ['center top'],
+    bottom: ['center bottom'],
+    center: ['center center'],
+    left: ['left center'],
+    right: ['right center'],
+    'top left': ['left top'],
+    'top right': ['right top'],
+    'bottom left': ['left bottom'],
+    'bottom right': ['right bottom'],
   };
   var index$r = /* @__PURE__ */ defineBuiltInComponent({
-    name: "Image",
+    name: 'Image',
     props: props$s,
-    setup(props2, {
-      emit: emit2
-    }) {
+    setup(props2, { emit: emit2 }) {
       const rootRef = vue.ref(null);
       const state2 = useImageState(rootRef, props2);
       const trigger = useCustomEvent(rootRef, emit2);
-      const {
-        fixSize
-      } = useImageSize(rootRef, props2, state2);
+      const { fixSize } = useImageSize(rootRef, props2, state2);
       useImageLoader(state2, fixSize, trigger);
       return () => {
-        const {
-          mode: mode2
-        } = props2;
-        const {
-          imgSrc,
-          modeStyle,
-          src
-        } = state2;
+        const { mode: mode2 } = props2;
+        const { imgSrc, modeStyle, src } = state2;
         let imgTsx;
         {
-          imgTsx = imgSrc ? vue.createVNode("img", {
-            "src": imgSrc,
-            "draggable": props2.draggable
-          }, null, 8, ["src", "draggable"]) : vue.createVNode("img", null, null);
+          imgTsx = imgSrc
+            ? vue.createVNode(
+                'img',
+                {
+                  src: imgSrc,
+                  draggable: props2.draggable,
+                },
+                null,
+                8,
+                ['src', 'draggable'],
+              )
+            : vue.createVNode('img', null, null);
         }
-        return vue.createVNode("uni-image", {
-          "ref": rootRef
-        }, [vue.createVNode("div", {
-          "style": modeStyle
-        }, null, 4), imgTsx, FIX_MODES[mode2] ? vue.createVNode(ResizeSensor, {
-          "onResize": fixSize
-        }, null, 8, ["onResize"]) : vue.createVNode("span", null, null)], 512);
+        return vue.createVNode(
+          'uni-image',
+          {
+            ref: rootRef,
+          },
+          [
+            vue.createVNode(
+              'div',
+              {
+                style: modeStyle,
+              },
+              null,
+              4,
+            ),
+            imgTsx,
+            FIX_MODES[mode2]
+              ? vue.createVNode(
+                  ResizeSensor,
+                  {
+                    onResize: fixSize,
+                  },
+                  null,
+                  8,
+                  ['onResize'],
+                )
+              : vue.createVNode('span', null, null),
+          ],
+          512,
+        );
       };
-    }
+    },
   });
   function useImageState(rootRef, props2) {
-    const imgSrc = vue.ref("");
+    const imgSrc = vue.ref('');
     const modeStyleRef = vue.computed(() => {
-      let size = "auto";
-      let position = "";
+      let size = 'auto';
+      let position = '';
       const opts = IMAGE_MODES[props2.mode];
       if (!opts) {
-        position = "0% 0%";
-        size = "100% 100%";
+        position = '0% 0%';
+        size = '100% 100%';
       } else {
         opts[0] && (position = opts[0]);
         opts[1] && (size = opts[1]);
       }
-      return `background-image:${imgSrc.value ? 'url("' + imgSrc.value + '")' : "none"};background-position:${position};background-size:${size};`;
+      return `background-image:${
+        imgSrc.value ? 'url("' + imgSrc.value + '")' : 'none'
+      };background-position:${position};background-size:${size};`;
     });
     const state2 = vue.reactive({
       rootEl: rootRef,
-      src: vue.computed(() => props2.src ? getRealPath(props2.src) : ""),
+      src: vue.computed(() => (props2.src ? getRealPath(props2.src) : '')),
       origWidth: 0,
       origHeight: 0,
       origStyle: {
-        width: "",
-        height: ""
+        width: '',
+        height: '',
       },
       modeStyle: modeStyleRef,
-      imgSrc
+      imgSrc,
     });
     vue.onMounted(() => {
       const rootEl = rootRef.value;
@@ -2468,7 +3162,7 @@ var __publicField = (obj, key, value) => {
   }
   function useImageLoader(state2, fixSize, trigger) {
     let img;
-    const setState = (width = 0, height = 0, imgSrc = "") => {
+    const setState = (width = 0, height = 0, imgSrc = '') => {
       state2.origWidth = width;
       state2.origHeight = height;
       state2.imgSrc = imgSrc;
@@ -2481,23 +3175,20 @@ var __publicField = (obj, key, value) => {
       }
       img = img || new Image();
       img.onload = (evt) => {
-        const {
-          width,
-          height
-        } = img;
+        const { width, height } = img;
         setState(width, height, src);
         fixSize();
         resetImage();
-        trigger("load", evt, {
+        trigger('load', evt, {
           width,
-          height
+          height,
         });
       };
       img.onerror = (evt) => {
         setState();
         resetImage();
-        trigger("error", evt, {
-          errMsg: `GET ${state2.src} 404 (Not Found)`
+        trigger('error', evt, {
+          errMsg: `GET ${state2.src} 404 (Not Found)`,
         });
       };
       img.src = src;
@@ -2509,11 +3200,14 @@ var __publicField = (obj, key, value) => {
         img = null;
       }
     };
-    vue.watch(() => state2.src, (value) => loadImage(value));
+    vue.watch(
+      () => state2.src,
+      (value) => loadImage(value),
+    );
     vue.onMounted(() => loadImage(state2.src));
     vue.onBeforeUnmount(() => resetImage());
   }
-  const isChrome = navigator.vendor === "Google Inc.";
+  const isChrome = navigator.vendor === 'Google Inc.';
   function fixNumber(num) {
     if (isChrome && num > 10) {
       num = Math.round(num / 2) * 2;
@@ -2522,17 +3216,12 @@ var __publicField = (obj, key, value) => {
   }
   function useImageSize(rootRef, props2, state2) {
     const fixSize = () => {
-      const {
-        mode: mode2
-      } = props2;
+      const { mode: mode2 } = props2;
       const names = FIX_MODES[mode2];
       if (!names) {
         return;
       }
-      const {
-        origWidth,
-        origHeight
-      } = state2;
+      const { origWidth, origHeight } = state2;
       const ratio = origWidth && origHeight ? origWidth / origHeight : 0;
       if (!ratio) {
         return;
@@ -2540,71 +3229,77 @@ var __publicField = (obj, key, value) => {
       const rootEl = rootRef.value;
       const value = rootEl[names[0]];
       if (value) {
-        rootEl.style[names[1]] = fixNumber(names[2](value, ratio)) + "px";
+        rootEl.style[names[1]] = fixNumber(names[2](value, ratio)) + 'px';
       }
     };
     const resetSize = () => {
+      const { style } = rootRef.value;
       const {
-        style
-      } = rootRef.value;
-      const {
-        origStyle: {
-          width,
-          height
-        }
+        origStyle: { width, height },
       } = state2;
       style.width = width;
       style.height = height;
     };
-    vue.watch(() => props2.mode, (value, oldValue) => {
-      if (FIX_MODES[oldValue]) {
-        resetSize();
-      }
-      if (FIX_MODES[value]) {
-        fixSize();
-      }
-    });
+    vue.watch(
+      () => props2.mode,
+      (value, oldValue) => {
+        if (FIX_MODES[oldValue]) {
+          resetSize();
+        }
+        if (FIX_MODES[value]) {
+          fixSize();
+        }
+      },
+    );
     return {
       fixSize,
-      resetSize
+      resetSize,
     };
   }
   const passiveOptions$1 = /* @__PURE__ */ passive(true);
   const states = [];
   let userInteract = 0;
   let inited;
-  const setUserAction = (userAction) => states.forEach((vm) => vm.userAction = userAction);
+  const setUserAction = (userAction) =>
+    states.forEach((vm) => (vm.userAction = userAction));
   function addInteractListener(vm = { userAction: false }) {
     if (!inited) {
       const eventNames = [
-        "touchstart",
-        "touchmove",
-        "touchend",
-        "mousedown",
-        "mouseup"
+        'touchstart',
+        'touchmove',
+        'touchend',
+        'mousedown',
+        'mouseup',
       ];
       eventNames.forEach((eventName) => {
-        document.addEventListener(eventName, function() {
-          !userInteract && setUserAction(true);
-          userInteract++;
-          setTimeout(() => {
-            !--userInteract && setUserAction(false);
-          }, 0);
-        }, passiveOptions$1);
+        document.addEventListener(
+          eventName,
+          function () {
+            !userInteract && setUserAction(true);
+            userInteract++;
+            setTimeout(() => {
+              !--userInteract && setUserAction(false);
+            }, 0);
+          },
+          passiveOptions$1,
+        );
       });
       inited = true;
     }
     states.push(vm);
   }
   const SPACE_UNICODE = {
-    ensp: "\u2002",
-    emsp: "\u2003",
-    nbsp: "\xA0"
+    ensp: '\u2002',
+    emsp: '\u2003',
+    nbsp: '\xA0',
   };
   function parseText(text2, options) {
-    return text2.replace(/\\n/g, LINEFEED).split(LINEFEED).map((text22) => {
-      return normalizeText(text22, options);
-    });
+    return text2
+      .replace(/\\n/g, LINEFEED)
+      .split(LINEFEED)
+      .map((text22) => {
+        return normalizeText(text22, options);
+      });
   }
   function normalizeText(text2, { space, decode: decode2 }) {
     if (!text2) {
@@ -2616,27 +3311,33 @@ var __publicField = (obj, key, value) => {
     if (!decode2) {
       return text2;
     }
-    return text2.replace(/&nbsp;/g, SPACE_UNICODE.nbsp).replace(/&ensp;/g, SPACE_UNICODE.ensp).replace(/&emsp;/g, SPACE_UNICODE.emsp).replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+    return text2
+      .replace(/&nbsp;/g, SPACE_UNICODE.nbsp)
+      .replace(/&ensp;/g, SPACE_UNICODE.ensp)
+      .replace(/&emsp;/g, SPACE_UNICODE.emsp)
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'");
   }
   var index$j = /* @__PURE__ */ defineBuiltInComponent({
-    name: "Text",
+    name: 'Text',
     props: {
       selectable: {
         type: [Boolean, String],
-        default: false
+        default: false,
       },
       space: {
         type: String,
-        default: ""
+        default: '',
       },
       decode: {
         type: [Boolean, String],
-        default: false
-      }
+        default: false,
+      },
     },
-    setup(props2, {
-      slots
-    }) {
+    setup(props2, { slots }) {
       return () => {
         const children = [];
         if (slots.default) {
@@ -2644,17 +3345,16 @@ var __publicField = (obj, key, value) => {
             if (vnode.shapeFlag & 8 && vnode.type !== vue.Comment) {
               const lines = parseText(vnode.children, {
                 space: props2.space,
-                decode: props2.decode
+                decode: props2.decode,
               });
               const len = lines.length - 1;
               lines.forEach((line, index2) => {
-                if (index2 === 0 && !line)
-                  ;
+                if (index2 === 0 && !line);
                 else {
                   children.push(vue.createTextVNode(line));
                 }
                 if (index2 !== len) {
-                  children.push(vue.createVNode("br"));
+                  children.push(vue.createVNode('br'));
                 }
               });
             } else {
@@ -2662,34 +3362,45 @@ var __publicField = (obj, key, value) => {
             }
           });
         }
-        return vue.createVNode("uni-text", {
-          "selectable": props2.selectable ? true : null
-        }, [vue.createVNode("span", null, children)], 8, ["selectable"]);
+        return vue.createVNode(
+          'uni-text',
+          {
+            selectable: props2.selectable ? true : null,
+          },
+          [vue.createVNode('span', null, children)],
+          8,
+          ['selectable'],
+        );
       };
-    }
+    },
   });
   var index$h = /* @__PURE__ */ defineBuiltInComponent({
-    name: "View",
+    name: 'View',
     props: extend({}, hoverProps),
-    setup(props2, {
-      slots
-    }) {
-      const {
-        hovering,
-        binding
-      } = useHover(props2);
+    setup(props2, { slots }) {
+      const { hovering, binding } = useHover(props2);
       return () => {
         const hoverClass = props2.hoverClass;
-        if (hoverClass && hoverClass !== "none") {
-          return vue.createVNode("uni-view", vue.mergeProps({
-            "class": hovering.value ? hoverClass : ""
-          }, binding), [slots.default && slots.default()], 16);
+        if (hoverClass && hoverClass !== 'none') {
+          return vue.createVNode(
+            'uni-view',
+            vue.mergeProps(
+              {
+                class: hovering.value ? hoverClass : '',
+              },
+              binding,
+            ),
+            [slots.default && slots.default()],
+            16,
+          );
         }
-        return vue.createVNode("uni-view", null, [slots.default && slots.default()]);
+        return vue.createVNode('uni-view', null, [
+          slots.default && slots.default(),
+        ]);
       };
-    }
+    },
   });
-  const pageMetaKey = PolySymbol("upm");
+  const pageMetaKey = PolySymbol('upm');
   function usePageMeta() {
     return vue.inject(pageMetaKey);
   }
@@ -2699,22 +3410,26 @@ var __publicField = (obj, key, value) => {
     return pageMeta;
   }
   function initPageMeta(id2) {
-    return vue.reactive(normalizePageMeta(JSON.parse(JSON.stringify(initRouteMeta(__uniRoutes[0].meta, id2)))));
+    return vue.reactive(
+      normalizePageMeta(
+        JSON.parse(JSON.stringify(initRouteMeta(__uniRoutes[0].meta, id2))),
+      ),
+    );
   }
   function normalizePageMeta(pageMeta) {
     {
       const { navigationBar } = pageMeta;
       const { titleSize, titleColor, backgroundColor } = navigationBar;
-      navigationBar.titleText = navigationBar.titleText || "";
-      navigationBar.type = navigationBar.type || "default";
-      navigationBar.titleSize = titleSize || "16px";
-      navigationBar.titleColor = titleColor || "#ffffff";
-      navigationBar.backgroundColor = backgroundColor || "#F7F7F7";
+      navigationBar.titleText = navigationBar.titleText || '';
+      navigationBar.type = navigationBar.type || 'default';
+      navigationBar.titleSize = titleSize || '16px';
+      navigationBar.titleColor = titleColor || '#ffffff';
+      navigationBar.backgroundColor = backgroundColor || '#F7F7F7';
     }
     return pageMeta;
   }
   function getStateId() {
-    return history.state && history.state.__id__ || 1;
+    return (history.state && history.state.__id__) || 1;
   }
   const currentPagesMap = /* @__PURE__ */ new Map();
   function getCurrentPages$1() {
@@ -2745,39 +3460,70 @@ var __publicField = (obj, key, value) => {
     vue.onActivated(update);
   }
   var PageHead = /* @__PURE__ */ defineSystemComponent({
-    name: "PageHead",
+    name: 'PageHead',
     setup() {
       const headRef = vue.ref(null);
       const pageMeta = usePageMeta();
       const navigationBar = pageMeta.navigationBar;
-      const {
-        clazz: clazz2,
-        style
-      } = usePageHead(navigationBar);
+      const { clazz: clazz2, style } = usePageHead(navigationBar);
       return () => {
         const backButtonTsx = null;
         const leftButtonsTsx = [];
         const rightButtonsTsx = [];
-        const type = navigationBar.type || "default";
-        const placeholderTsx = type !== "transparent" && type !== "float" && vue.createVNode("div", {
-          "class": {
-            "uni-placeholder": true,
-            "uni-placeholder-titlePenetrate": navigationBar.titlePenetrate
-          }
-        }, null, 2);
-        return vue.createVNode("uni-page-head", {
-          "uni-page-head-type": type
-        }, [vue.createVNode("div", {
-          "ref": headRef,
-          "class": clazz2.value,
-          "style": style.value
-        }, [vue.createVNode("div", {
-          "class": "uni-page-head-hd"
-        }, [backButtonTsx, ...leftButtonsTsx]), createPageHeadBdTsx(navigationBar), vue.createVNode("div", {
-          "class": "uni-page-head-ft"
-        }, [...rightButtonsTsx])], 6), placeholderTsx], 8, ["uni-page-head-type"]);
+        const type = navigationBar.type || 'default';
+        const placeholderTsx =
+          type !== 'transparent' &&
+          type !== 'float' &&
+          vue.createVNode(
+            'div',
+            {
+              class: {
+                'uni-placeholder': true,
+                'uni-placeholder-titlePenetrate': navigationBar.titlePenetrate,
+              },
+            },
+            null,
+            2,
+          );
+        return vue.createVNode(
+          'uni-page-head',
+          {
+            'uni-page-head-type': type,
+          },
+          [
+            vue.createVNode(
+              'div',
+              {
+                ref: headRef,
+                class: clazz2.value,
+                style: style.value,
+              },
+              [
+                vue.createVNode(
+                  'div',
+                  {
+                    class: 'uni-page-head-hd',
+                  },
+                  [backButtonTsx, ...leftButtonsTsx],
+                ),
+                createPageHeadBdTsx(navigationBar),
+                vue.createVNode(
+                  'div',
+                  {
+                    class: 'uni-page-head-ft',
+                  },
+                  [...rightButtonsTsx],
+                ),
+              ],
+              6,
+            ),
+            placeholderTsx,
+          ],
+          8,
+          ['uni-page-head-type'],
+        );
       };
-    }
+    },
   });
   function createPageHeadBdTsx(navigationBar, searchInput) {
     {
@@ -2789,35 +3535,58 @@ var __publicField = (obj, key, value) => {
     loading,
     titleSize,
     titleText,
-    titleImage
+    titleImage,
   }) {
-    return vue.createVNode("div", {
-      "class": "uni-page-head-bd"
-    }, [vue.createVNode("div", {
-      "style": {
-        fontSize: titleSize,
-        opacity: type === "transparent" ? 0 : 1
+    return vue.createVNode(
+      'div',
+      {
+        class: 'uni-page-head-bd',
       },
-      "class": "uni-page-head__title"
-    }, [loading ? vue.createVNode("i", {
-      "class": "uni-loading"
-    }, null) : titleImage ? vue.createVNode("img", {
-      "src": titleImage,
-      "class": "uni-page-head__title_image"
-    }, null, 8, ["src"]) : titleText], 4)]);
+      [
+        vue.createVNode(
+          'div',
+          {
+            style: {
+              fontSize: titleSize,
+              opacity: type === 'transparent' ? 0 : 1,
+            },
+            class: 'uni-page-head__title',
+          },
+          [
+            loading
+              ? vue.createVNode(
+                  'i',
+                  {
+                    class: 'uni-loading',
+                  },
+                  null,
+                )
+              : titleImage
+              ? vue.createVNode(
+                  'img',
+                  {
+                    src: titleImage,
+                    class: 'uni-page-head__title_image',
+                  },
+                  null,
+                  8,
+                  ['src'],
+                )
+              : titleText,
+          ],
+          4,
+        ),
+      ],
+    );
   }
   function usePageHead(navigationBar) {
     const clazz2 = vue.computed(() => {
-      const {
-        type,
-        titlePenetrate,
-        shadowColorType
-      } = navigationBar;
+      const { type, titlePenetrate, shadowColorType } = navigationBar;
       const clazz3 = {
-        "uni-page-head": true,
-        "uni-page-head-transparent": type === "transparent",
-        "uni-page-head-titlePenetrate": titlePenetrate === "YES",
-        "uni-page-head-shadow": !!shadowColorType
+        'uni-page-head': true,
+        'uni-page-head-transparent': type === 'transparent',
+        'uni-page-head-titlePenetrate': titlePenetrate === 'YES',
+        'uni-page-head-shadow': !!shadowColorType,
       };
       if (shadowColorType) {
         clazz3[`uni-page-head-shadow-${shadowColorType}`] = true;
@@ -2830,42 +3599,68 @@ var __publicField = (obj, key, value) => {
         backgroundColor,
         color: navigationBar.titleColor,
         transitionDuration: navigationBar.duration,
-        transitionTimingFunction: navigationBar.timingFunc
+        transitionTimingFunction: navigationBar.timingFunc,
       };
     });
     return {
       clazz: clazz2,
-      style
+      style,
     };
   }
   var PageBody = defineSystemComponent({
-    name: "PageBody",
+    name: 'PageBody',
     setup(props2, ctx) {
       const pageRefresh = null;
       return () => {
         const pageRefreshTsx = false;
-        return vue.createVNode(vue.Fragment, null, [pageRefreshTsx, vue.createVNode("uni-page-wrapper", pageRefresh, [vue.createVNode("uni-page-body", null, [vue.renderSlot(ctx.slots, "default")])], 16)]);
+        return vue.createVNode(vue.Fragment, null, [
+          pageRefreshTsx,
+          vue.createVNode(
+            'uni-page-wrapper',
+            pageRefresh,
+            [
+              vue.createVNode('uni-page-body', null, [
+                vue.renderSlot(ctx.slots, 'default'),
+              ]),
+            ],
+            16,
+          ),
+        ]);
       };
-    }
+    },
   });
   defineSystemComponent({
-    name: "Page",
+    name: 'Page',
     setup(_props, ctx) {
       const pageMeta = providePageMeta(getStateId());
       const navigationBar = pageMeta.navigationBar;
       useDocumentTitle(pageMeta);
-      return () => vue.createVNode("uni-page", { "data-page": pageMeta.route }, navigationBar.style !== "custom" ? [vue.createVNode(PageHead), createPageBodyVNode(ctx)] : [createPageBodyVNode(ctx)]);
-    }
+      return () =>
+        vue.createVNode(
+          'uni-page',
+          { 'data-page': pageMeta.route },
+          navigationBar.style !== 'custom'
+            ? [vue.createVNode(PageHead), createPageBodyVNode(ctx)]
+            : [createPageBodyVNode(ctx)],
+        );
+    },
   });
   function createPageBodyVNode(ctx) {
-    return vue.openBlock(), vue.createBlock(PageBody, { key: 0 }, {
-      default: vue.withCtx(() => [vue.renderSlot(ctx.slots, "page")]),
-      _: 3
-    });
+    return (
+      vue.openBlock(),
+      vue.createBlock(
+        PageBody,
+        { key: 0 },
+        {
+          default: vue.withCtx(() => [vue.renderSlot(ctx.slots, 'page')]),
+          _: 3,
+        },
+      )
+    );
   }
-  var text = "";
-  var view = "";
-  var uIcon_vue_vue_type_style_index_0_scoped_true_lang = "";
+  var text = '';
+  var view = '';
+  var uIcon_vue_vue_type_style_index_0_scoped_true_lang = '';
   var _export_sfc = (sfc, props) => {
     const target = sfc.__vccOpts || sfc;
     for (const [key, val] of props) {
@@ -2874,155 +3669,169 @@ var __publicField = (obj, key, value) => {
     return target;
   };
   const _sfc_main$3 = {
-    name: "u-icon",
-    emits: ["click", "touchstart"],
+    name: 'u-icon',
+    emits: ['click', 'touchstart'],
     props: {
       name: {
         type: String,
-        default: ""
+        default: '',
       },
       color: {
         type: String,
-        default: ""
+        default: '',
       },
       size: {
         type: [Number, String],
-        default: "inherit"
+        default: 'inherit',
       },
       bold: {
         type: Boolean,
-        default: false
+        default: false,
       },
       index: {
         type: [Number, String],
-        default: ""
+        default: '',
       },
       hoverClass: {
         type: String,
-        default: ""
+        default: '',
       },
       customPrefix: {
         type: String,
-        default: "uicon"
+        default: 'uicon',
       },
       label: {
         type: [String, Number],
-        default: ""
+        default: '',
       },
       labelPos: {
         type: String,
-        default: "right"
+        default: 'right',
       },
       labelSize: {
         type: [String, Number],
-        default: "28"
+        default: '28',
       },
       labelColor: {
         type: String,
-        default: "#606266"
+        default: '#606266',
       },
       marginLeft: {
         type: [String, Number],
-        default: "6"
+        default: '6',
       },
       marginTop: {
         type: [String, Number],
-        default: "6"
+        default: '6',
       },
       marginRight: {
         type: [String, Number],
-        default: "6"
+        default: '6',
       },
       marginBottom: {
         type: [String, Number],
-        default: "6"
+        default: '6',
       },
       imgMode: {
         type: String,
-        default: "widthFix"
+        default: 'widthFix',
       },
       customStyle: {
         type: Object,
         default() {
           return {};
-        }
+        },
       },
       width: {
         type: [String, Number],
-        default: ""
+        default: '',
       },
       height: {
         type: [String, Number],
-        default: ""
+        default: '',
       },
       top: {
         type: [String, Number],
-        default: 0
+        default: 0,
       },
       showDecimalIcon: {
         type: Boolean,
-        default: false
+        default: false,
       },
       inactiveColor: {
         type: String,
-        default: "#ececec"
+        default: '#ececec',
       },
       percent: {
         type: [Number, String],
-        default: "50"
-      }
+        default: '50',
+      },
     },
     computed: {
       customClass() {
         let classes = [];
         let { customPrefix, name } = this;
-        let index = name.indexOf("-icon-");
+        let index = name.indexOf('-icon-');
         if (index > -1) {
           customPrefix = name.substring(0, index + 5);
           classes.push(name);
         } else {
           classes.push(`${customPrefix}-${name}`);
         }
-        if (customPrefix === "uicon") {
-          classes.push("u-iconfont");
+        if (customPrefix === 'uicon') {
+          classes.push('u-iconfont');
         } else {
           classes.push(customPrefix);
         }
-        if (this.showDecimalIcon && this.inactiveColor && this.$u.config.type.includes(this.inactiveColor)) {
-          classes.push("u-icon__icon--" + this.inactiveColor);
+        if (
+          this.showDecimalIcon &&
+          this.inactiveColor &&
+          this.$u.config.type.includes(this.inactiveColor)
+        ) {
+          classes.push('u-icon__icon--' + this.inactiveColor);
         } else if (this.color && this.$u.config.type.includes(this.color))
-          classes.push("u-icon__icon--" + this.color);
+          classes.push('u-icon__icon--' + this.color);
         return classes;
       },
       iconStyle() {
         let style = {};
         style = {
-          fontSize: this.size == "inherit" ? "inherit" : this.$u.addUnit(this.size),
-          fontWeight: this.bold ? "bold" : "normal",
-          top: this.$u.addUnit(this.top)
+          fontSize:
+            this.size == 'inherit' ? 'inherit' : this.$u.addUnit(this.size),
+          fontWeight: this.bold ? 'bold' : 'normal',
+          top: this.$u.addUnit(this.top),
         };
-        if (this.showDecimalIcon && this.inactiveColor && !this.$u.config.type.includes(this.inactiveColor)) {
+        if (
+          this.showDecimalIcon &&
+          this.inactiveColor &&
+          !this.$u.config.type.includes(this.inactiveColor)
+        ) {
           style.color = this.inactiveColor;
         } else if (this.color && !this.$u.config.type.includes(this.color))
           style.color = this.color;
         return style;
       },
       isImg() {
-        return this.name.indexOf("/") !== -1;
+        return this.name.indexOf('/') !== -1;
       },
       imgStyle() {
         let style = {};
-        style.width = this.width ? this.$u.addUnit(this.width) : this.$u.addUnit(this.size);
-        style.height = this.height ? this.$u.addUnit(this.height) : this.$u.addUnit(this.size);
+        style.width = this.width
+          ? this.$u.addUnit(this.width)
+          : this.$u.addUnit(this.size);
+        style.height = this.height
+          ? this.$u.addUnit(this.height)
+          : this.$u.addUnit(this.size);
         return style;
       },
       decimalIconStyle() {
         let style = {};
         style = {
-          fontSize: this.size == "inherit" ? "inherit" : this.$u.addUnit(this.size),
-          fontWeight: this.bold ? "bold" : "normal",
+          fontSize:
+            this.size == 'inherit' ? 'inherit' : this.$u.addUnit(this.size),
+          fontWeight: this.bold ? 'bold' : 'normal',
           top: this.$u.addUnit(this.top),
-          width: this.percent + "%"
+          width: this.percent + '%',
         };
         if (this.color && !this.$u.config.type.includes(this.color))
           style.color = this.color;
@@ -3030,99 +3839,166 @@ var __publicField = (obj, key, value) => {
       },
       decimalIconClass() {
         let classes = [];
-        classes.push(this.customPrefix + "-" + this.name);
-        if (this.customPrefix == "uicon") {
-          classes.push("u-iconfont");
+        classes.push(this.customPrefix + '-' + this.name);
+        if (this.customPrefix == 'uicon') {
+          classes.push('u-iconfont');
         } else {
           classes.push(this.customPrefix);
         }
         if (this.color && this.$u.config.type.includes(this.color))
-          classes.push("u-icon__icon--" + this.color);
-        else
-          classes.push("u-icon__icon--primary");
+          classes.push('u-icon__icon--' + this.color);
+        else classes.push('u-icon__icon--primary');
         return classes;
-      }
+      },
     },
     methods: {
       click() {
-        this.$emit("click", this.index);
+        this.$emit('click', this.index);
       },
       touchstart() {
-        this.$emit("touchstart", this.index);
-      }
-    }
+        this.$emit('touchstart', this.index);
+      },
+    },
   };
   function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_v_uni_image = index$r;
     const _component_v_uni_text = index$j;
     const _component_v_uni_view = index$h;
-    return vue.openBlock(), vue.createBlock(_component_v_uni_view, {
-      style: vue.normalizeStyle([$props.customStyle]),
-      class: vue.normalizeClass(["u-icon", ["u-icon--" + $props.labelPos]]),
-      onClick: $options.click
-    }, {
-      default: vue.withCtx(() => [
-        $options.isImg ? (vue.openBlock(), vue.createBlock(_component_v_uni_image, {
-          key: 0,
-          class: "u-icon__img",
-          src: $props.name,
-          mode: $props.imgMode,
-          style: vue.normalizeStyle([$options.imgStyle])
-        }, null, 8, ["src", "mode", "style"])) : (vue.openBlock(), vue.createBlock(_component_v_uni_view, {
-          key: 1,
-          class: vue.normalizeClass(["u-icon__icon", $options.customClass]),
-          style: vue.normalizeStyle([$options.iconStyle]),
-          "hover-class": $props.hoverClass,
-          onTouchstart: $options.touchstart
-        }, {
+    return (
+      vue.openBlock(),
+      vue.createBlock(
+        _component_v_uni_view,
+        {
+          style: vue.normalizeStyle([$props.customStyle]),
+          class: vue.normalizeClass(['u-icon', ['u-icon--' + $props.labelPos]]),
+          onClick: $options.click,
+        },
+        {
           default: vue.withCtx(() => [
-            $props.showDecimalIcon ? (vue.openBlock(), vue.createBlock(_component_v_uni_text, {
-              key: 0,
-              style: vue.normalizeStyle([$options.decimalIconStyle]),
-              class: vue.normalizeClass([$options.decimalIconClass, "u-icon__decimal"]),
-              "hover-class": $props.hoverClass
-            }, null, 8, ["style", "class", "hover-class"])) : vue.createCommentVNode("v-if", true)
+            $options.isImg
+              ? (vue.openBlock(),
+                vue.createBlock(
+                  _component_v_uni_image,
+                  {
+                    key: 0,
+                    class: 'u-icon__img',
+                    src: $props.name,
+                    mode: $props.imgMode,
+                    style: vue.normalizeStyle([$options.imgStyle]),
+                  },
+                  null,
+                  8,
+                  ['src', 'mode', 'style'],
+                ))
+              : (vue.openBlock(),
+                vue.createBlock(
+                  _component_v_uni_view,
+                  {
+                    key: 1,
+                    class: vue.normalizeClass([
+                      'u-icon__icon',
+                      $options.customClass,
+                    ]),
+                    style: vue.normalizeStyle([$options.iconStyle]),
+                    'hover-class': $props.hoverClass,
+                    onTouchstart: $options.touchstart,
+                  },
+                  {
+                    default: vue.withCtx(() => [
+                      $props.showDecimalIcon
+                        ? (vue.openBlock(),
+                          vue.createBlock(
+                            _component_v_uni_text,
+                            {
+                              key: 0,
+                              style: vue.normalizeStyle([
+                                $options.decimalIconStyle,
+                              ]),
+                              class: vue.normalizeClass([
+                                $options.decimalIconClass,
+                                'u-icon__decimal',
+                              ]),
+                              'hover-class': $props.hoverClass,
+                            },
+                            null,
+                            8,
+                            ['style', 'class', 'hover-class'],
+                          ))
+                        : vue.createCommentVNode('v-if', true),
+                    ]),
+                    _: 1,
+                  },
+                  8,
+                  ['class', 'style', 'hover-class', 'onTouchstart'],
+                )),
+            vue.createCommentVNode(
+              ' \u8FD9\u91CC\u8FDB\u884C\u7A7A\u5B57\u7B26\u4E32\u5224\u65AD\uFF0C\u5982\u679C\u4EC5\u4EC5\u662Fv-if="label"\uFF0C\u53EF\u80FD\u4F1A\u51FA\u73B0\u4F20\u90120\u7684\u65F6\u5019\uFF0C\u7ED3\u679C\u4E5F\u65E0\u6CD5\u663E\u793A\uFF0C\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u4E0D\u4F20\u503C\u9ED8\u8BA4\u4E3Anull\uFF0C\u6545\u9700\u8981\u589E\u52A0null\u7684\u5224\u65AD ',
+            ),
+            $props.label !== '' && $props.label !== null
+              ? (vue.openBlock(),
+                vue.createBlock(
+                  _component_v_uni_text,
+                  {
+                    key: 2,
+                    class: 'u-icon__label',
+                    style: vue.normalizeStyle({
+                      color: $props.labelColor,
+                      fontSize: _ctx.$u.addUnit($props.labelSize),
+                      marginLeft:
+                        $props.labelPos == 'right'
+                          ? _ctx.$u.addUnit($props.marginLeft)
+                          : 0,
+                      marginTop:
+                        $props.labelPos == 'bottom'
+                          ? _ctx.$u.addUnit($props.marginTop)
+                          : 0,
+                      marginRight:
+                        $props.labelPos == 'left'
+                          ? _ctx.$u.addUnit($props.marginRight)
+                          : 0,
+                      marginBottom:
+                        $props.labelPos == 'top'
+                          ? _ctx.$u.addUnit($props.marginBottom)
+                          : 0,
+                    }),
+                  },
+                  {
+                    default: vue.withCtx(() => [
+                      vue.createTextVNode(vue.toDisplayString($props.label), 1),
+                    ]),
+                    _: 1,
+                  },
+                  8,
+                  ['style'],
+                ))
+              : vue.createCommentVNode('v-if', true),
           ]),
-          _: 1
-        }, 8, ["class", "style", "hover-class", "onTouchstart"])),
-        vue.createCommentVNode(' \u8FD9\u91CC\u8FDB\u884C\u7A7A\u5B57\u7B26\u4E32\u5224\u65AD\uFF0C\u5982\u679C\u4EC5\u4EC5\u662Fv-if="label"\uFF0C\u53EF\u80FD\u4F1A\u51FA\u73B0\u4F20\u90120\u7684\u65F6\u5019\uFF0C\u7ED3\u679C\u4E5F\u65E0\u6CD5\u663E\u793A\uFF0C\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F\u4E0D\u4F20\u503C\u9ED8\u8BA4\u4E3Anull\uFF0C\u6545\u9700\u8981\u589E\u52A0null\u7684\u5224\u65AD '),
-        $props.label !== "" && $props.label !== null ? (vue.openBlock(), vue.createBlock(_component_v_uni_text, {
-          key: 2,
-          class: "u-icon__label",
-          style: vue.normalizeStyle({
-            color: $props.labelColor,
-            fontSize: _ctx.$u.addUnit($props.labelSize),
-            marginLeft: $props.labelPos == "right" ? _ctx.$u.addUnit($props.marginLeft) : 0,
-            marginTop: $props.labelPos == "bottom" ? _ctx.$u.addUnit($props.marginTop) : 0,
-            marginRight: $props.labelPos == "left" ? _ctx.$u.addUnit($props.marginRight) : 0,
-            marginBottom: $props.labelPos == "top" ? _ctx.$u.addUnit($props.marginBottom) : 0
-          })
-        }, {
-          default: vue.withCtx(() => [
-            vue.createTextVNode(vue.toDisplayString($props.label), 1)
-          ]),
-          _: 1
-        }, 8, ["style"])) : vue.createCommentVNode("v-if", true)
-      ]),
-      _: 1
-    }, 8, ["style", "onClick", "class"]);
+          _: 1,
+        },
+        8,
+        ['style', 'onClick', 'class'],
+      )
+    );
   }
-  var __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-b2a223fe"]]);
+  var __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [
+    ['render', _sfc_render$3],
+    ['__scopeId', 'data-v-b2a223fe'],
+  ]);
   function resolveEasycom(component, easycom) {
     return isString(component) ? easycom : component;
   }
-  var uTimeLineItem_vue_vue_type_style_index_0_scoped_true_lang = "";
+  var uTimeLineItem_vue_vue_type_style_index_0_scoped_true_lang = '';
   const _sfc_main$2 = {
-    name: "u-time-line-item",
+    name: 'u-time-line-item',
     props: {
       bgColor: {
         type: String,
-        default: "#ffffff"
+        default: '#ffffff',
       },
       nodeTop: {
         type: [String, Number],
-        default: ""
-      }
+        default: '',
+      },
     },
     data() {
       return {};
@@ -3130,151 +4006,262 @@ var __publicField = (obj, key, value) => {
     computed: {
       nodeStyle() {
         let style = {
-          backgroundColor: this.bgColor
+          backgroundColor: this.bgColor,
         };
-        if (this.nodeTop != "")
-          style.top = this.nodeTop + "rpx";
+        if (this.nodeTop != '') style.top = this.nodeTop + 'rpx';
         return style;
-      }
-    }
+      },
+    },
   };
   function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_v_uni_view = index$h;
-    return vue.openBlock(), vue.createBlock(_component_v_uni_view, { class: "u-time-axis-item" }, {
-      default: vue.withCtx(() => [
-        vue.renderSlot(_ctx.$slots, "content", {}, void 0, true),
-        vue.createVNode(_component_v_uni_view, {
-          class: "u-time-axis-node",
-          style: vue.normalizeStyle([$options.nodeStyle])
-        }, {
+    return (
+      vue.openBlock(),
+      vue.createBlock(
+        _component_v_uni_view,
+        { class: 'u-time-axis-item' },
+        {
           default: vue.withCtx(() => [
-            vue.renderSlot(_ctx.$slots, "node", {}, () => [
-              vue.createVNode(_component_v_uni_view, { class: "u-dot" })
-            ], true)
+            vue.renderSlot(_ctx.$slots, 'content', {}, void 0, true),
+            vue.createVNode(
+              _component_v_uni_view,
+              {
+                class: 'u-time-axis-node',
+                style: vue.normalizeStyle([$options.nodeStyle]),
+              },
+              {
+                default: vue.withCtx(() => [
+                  vue.renderSlot(
+                    _ctx.$slots,
+                    'node',
+                    {},
+                    () => [
+                      vue.createVNode(_component_v_uni_view, {
+                        class: 'u-dot',
+                      }),
+                    ],
+                    true,
+                  ),
+                ]),
+                _: 3,
+              },
+              8,
+              ['style'],
+            ),
           ]),
-          _: 3
-        }, 8, ["style"])
-      ]),
-      _: 3
-    });
+          _: 3,
+        },
+      )
+    );
   }
-  var __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-20ad8016"]]);
-  var uTimeLine_vue_vue_type_style_index_0_scoped_true_lang = "";
+  var __easycom_2 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [
+    ['render', _sfc_render$2],
+    ['__scopeId', 'data-v-20ad8016'],
+  ]);
+  var uTimeLine_vue_vue_type_style_index_0_scoped_true_lang = '';
   const _sfc_main$1 = {
-    name: "u-time-line",
+    name: 'u-time-line',
     data() {
       return {};
-    }
+    },
   };
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_v_uni_view = index$h;
-    return vue.openBlock(), vue.createBlock(_component_v_uni_view, { class: "u-time-axis" }, {
-      default: vue.withCtx(() => [
-        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ]),
-      _: 3
-    });
+    return (
+      vue.openBlock(),
+      vue.createBlock(
+        _component_v_uni_view,
+        { class: 'u-time-axis' },
+        {
+          default: vue.withCtx(() => [
+            vue.renderSlot(_ctx.$slots, 'default', {}, void 0, true),
+          ]),
+          _: 3,
+        },
+      )
+    );
   }
-  var __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1], ["__scopeId", "data-v-f8289406"]]);
-  var uniTimeLine_vue_vue_type_style_index_0_scoped_true_lang = "";
+  var __easycom_3 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [
+    ['render', _sfc_render$1],
+    ['__scopeId', 'data-v-f8289406'],
+  ]);
+  var uniTimeLine_vue_vue_type_style_index_0_scoped_true_lang = '';
   const _sfc_main = {
-    props: ["componentProperties", "id"],
+    props: ['componentProperties', 'id'],
     data() {
       return {
         show: true,
-        mode: "date",
+        mode: 'date',
         timeLineDemo: [
           {
-            status: "\u8FD0\u8F93\u4E2D",
-            desc: "\u3010\u6DF1\u5733\u5E02\u3011\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\uFF0C\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002",
-            time: "2019-05-10 12:12"
+            status: '\u8FD0\u8F93\u4E2D',
+            desc: '\u3010\u6DF1\u5733\u5E02\u3011\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\uFF0C\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002',
+            time: '2019-05-10 12:12',
           },
           {
-            status: "\u8FD0\u8F93\u4E2D",
-            desc: "\u3010\u6DF1\u5733\u5E02\u3011\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\uFF0C\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002",
-            time: "2019-05-08 12:12"
+            status: '\u8FD0\u8F93\u4E2D',
+            desc: '\u3010\u6DF1\u5733\u5E02\u3011\u65E5\u7167\u9999\u7089\u751F\u7D2B\u70DF\uFF0C\u9065\u770B\u7011\u5E03\u6302\u524D\u5DDD\uFF0C\u98DE\u6D41\u76F4\u4E0B\u4E09\u5343\u5C3A\uFF0C\u7591\u662F\u94F6\u6CB3\u843D\u4E5D\u5929\u3002',
+            time: '2019-05-08 12:12',
           },
           {
-            status: "\u5F85\u53D6\u4EF6",
-            desc: "[\u81EA\u63D0\u67DC]\u60A8\u7684\u5FEB\u4EF6\u5DF2\u653E\u5728\u697C\u4E0B\u4FA7\u95E8\uFF0C\u76F4\u8D70\u524D\u65B953.6\u7C73\uFF0C\u5DE6\u62D0\u7EA610\u6B65\uFF0C\u518D\u53F3\u62D0\u76F4\u8D70\uFF0C\u89C1\u4E00\u7EA2\u706F\u7B3C\u505C\u4E0B\uFF0C\u53E9\u95E8\u4E09\u4E0B\uFF0C\u558A\u201C\u829D\u9EBB\u5F00\u95E8\u201D\u5373\u53EF\u3002",
-            time: "2019-05-12 12:12"
-          }
-        ]
+            status: '\u5F85\u53D6\u4EF6',
+            desc: '[\u81EA\u63D0\u67DC]\u60A8\u7684\u5FEB\u4EF6\u5DF2\u653E\u5728\u697C\u4E0B\u4FA7\u95E8\uFF0C\u76F4\u8D70\u524D\u65B953.6\u7C73\uFF0C\u5DE6\u62D0\u7EA610\u6B65\uFF0C\u518D\u53F3\u62D0\u76F4\u8D70\uFF0C\u89C1\u4E00\u7EA2\u706F\u7B3C\u505C\u4E0B\uFF0C\u53E9\u95E8\u4E09\u4E0B\uFF0C\u558A\u201C\u829D\u9EBB\u5F00\u95E8\u201D\u5373\u53EF\u3002',
+            time: '2019-05-12 12:12',
+          },
+        ],
       };
     },
     computed: {
       timeLine() {
-        return this.componentProperties && this.componentProperties.data && this.componentProperties.data.timeLine || this.timeLineDemo;
+        return (
+          (this.componentProperties &&
+            this.componentProperties.data &&
+            this.componentProperties.data.timeLine) ||
+          this.timeLineDemo
+        );
       },
       timeLineReverse() {
         return this.timeLine ? this.timeLine.reverse() : [];
-      }
-    }
+      },
+    },
   };
   function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_u_icon = resolveEasycom(vue.resolveDynamicComponent("u-icon"), __easycom_0);
+    const _component_u_icon = resolveEasycom(
+      vue.resolveDynamicComponent('u-icon'),
+      __easycom_0,
+    );
     const _component_v_uni_view = index$h;
-    const _component_u_time_line_item = resolveEasycom(vue.resolveDynamicComponent("u-time-line-item"), __easycom_2);
-    const _component_u_time_line = resolveEasycom(vue.resolveDynamicComponent("u-time-line"), __easycom_3);
-    return vue.openBlock(), vue.createBlock(_component_u_time_line, { class: "time-line" }, {
-      default: vue.withCtx(() => [
-        (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList($options.timeLineReverse, (item, index) => {
-          return vue.openBlock(), vue.createBlock(_component_u_time_line_item, { key: index }, vue.createSlots({
-            content: vue.withCtx(() => [
-              vue.createVNode(_component_v_uni_view, null, {
-                default: vue.withCtx(() => [
-                  vue.createVNode(_component_v_uni_view, { class: "u-order-title" }, {
-                    default: vue.withCtx(() => [
-                      vue.createTextVNode(vue.toDisplayString(item.status), 1)
-                    ]),
-                    _: 2
-                  }, 1024),
-                  vue.createVNode(_component_v_uni_view, { class: "u-order-desc" }, {
-                    default: vue.withCtx(() => [
-                      vue.createTextVNode(vue.toDisplayString(item.desc), 1)
-                    ]),
-                    _: 2
-                  }, 1024),
-                  vue.createVNode(_component_v_uni_view, { class: "u-order-time" }, {
-                    default: vue.withCtx(() => [
-                      vue.createTextVNode(vue.toDisplayString(item.time), 1)
-                    ]),
-                    _: 2
-                  }, 1024)
-                ]),
-                _: 2
-              }, 1024)
-            ]),
-            _: 2
-          }, [
-            index === 0 ? {
-              name: "node",
-              fn: vue.withCtx(() => [
-                vue.createVNode(_component_v_uni_view, {
-                  class: "u-node",
-                  style: { "background": "#19be6b" }
-                }, {
-                  default: vue.withCtx(() => [
-                    vue.createCommentVNode(" \u6B64\u5904\u4E3AuView\u7684icon\u7EC4\u4EF6 "),
-                    vue.createVNode(_component_u_icon, {
-                      name: "pushpin-fill",
-                      color: "#fff",
-                      size: 24
-                    })
-                  ]),
-                  _: 1
-                })
-              ])
-            } : void 0
-          ]), 1024);
-        }), 128))
-      ]),
-      _: 1
-    });
+    const _component_u_time_line_item = resolveEasycom(
+      vue.resolveDynamicComponent('u-time-line-item'),
+      __easycom_2,
+    );
+    const _component_u_time_line = resolveEasycom(
+      vue.resolveDynamicComponent('u-time-line'),
+      __easycom_3,
+    );
+    return (
+      vue.openBlock(),
+      vue.createBlock(
+        _component_u_time_line,
+        { class: 'time-line' },
+        {
+          default: vue.withCtx(() => [
+            (vue.openBlock(true),
+            vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($options.timeLineReverse, (item, index) => {
+                return (
+                  vue.openBlock(),
+                  vue.createBlock(
+                    _component_u_time_line_item,
+                    { key: index },
+                    vue.createSlots(
+                      {
+                        content: vue.withCtx(() => [
+                          vue.createVNode(
+                            _component_v_uni_view,
+                            null,
+                            {
+                              default: vue.withCtx(() => [
+                                vue.createVNode(
+                                  _component_v_uni_view,
+                                  { class: 'u-order-title' },
+                                  {
+                                    default: vue.withCtx(() => [
+                                      vue.createTextVNode(
+                                        vue.toDisplayString(item.status),
+                                        1,
+                                      ),
+                                    ]),
+                                    _: 2,
+                                  },
+                                  1024,
+                                ),
+                                vue.createVNode(
+                                  _component_v_uni_view,
+                                  { class: 'u-order-desc' },
+                                  {
+                                    default: vue.withCtx(() => [
+                                      vue.createTextVNode(
+                                        vue.toDisplayString(item.desc),
+                                        1,
+                                      ),
+                                    ]),
+                                    _: 2,
+                                  },
+                                  1024,
+                                ),
+                                vue.createVNode(
+                                  _component_v_uni_view,
+                                  { class: 'u-order-time' },
+                                  {
+                                    default: vue.withCtx(() => [
+                                      vue.createTextVNode(
+                                        vue.toDisplayString(item.time),
+                                        1,
+                                      ),
+                                    ]),
+                                    _: 2,
+                                  },
+                                  1024,
+                                ),
+                              ]),
+                              _: 2,
+                            },
+                            1024,
+                          ),
+                        ]),
+                        _: 2,
+                      },
+                      [
+                        index === 0
+                          ? {
+                              name: 'node',
+                              fn: vue.withCtx(() => [
+                                vue.createVNode(
+                                  _component_v_uni_view,
+                                  {
+                                    class: 'u-node',
+                                    style: { background: '#19be6b' },
+                                  },
+                                  {
+                                    default: vue.withCtx(() => [
+                                      vue.createCommentVNode(
+                                        ' \u6B64\u5904\u4E3AuView\u7684icon\u7EC4\u4EF6 ',
+                                      ),
+                                      vue.createVNode(_component_u_icon, {
+                                        name: 'pushpin-fill',
+                                        color: '#fff',
+                                        size: 24,
+                                      }),
+                                    ]),
+                                    _: 1,
+                                  },
+                                ),
+                              ]),
+                            }
+                          : void 0,
+                      ],
+                    ),
+                    1024,
+                  )
+                );
+              }),
+              128,
+            )),
+          ]),
+          _: 1,
+        },
+      )
+    );
   }
-  var InfoCard = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-cbc7eb8c"]]);
+  var InfoCard = /* @__PURE__ */ _export_sfc(_sfc_main, [
+    ['render', _sfc_render],
+    ['__scopeId', 'data-v-cbc7eb8c'],
+  ]);
   registerRenderer(InfoCard, {
-    type: "uni-time-line",
-    framework: "vue3"
+    type: 'uni-time-line',
+    framework: 'vue3',
   });
 });
